@@ -5,7 +5,11 @@ class Player extends Character{
   
   void display() {
     fill(0,0,255);
-    tri(x,y,30,0);
+    pushMatrix();
+    translate(x,y);
+    rotate(atan((mouseY-y)/(mouseX-x)));
+    tri(0,0,30,0);
+    popMatrix();
   }
   
   void move(int num) {

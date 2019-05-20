@@ -2,7 +2,7 @@ Player player;
 
 void setup() {
   size(600,600);
-  player = new Player(30,30);
+  player = new Player(300,300);
 }
 
 void draw() {
