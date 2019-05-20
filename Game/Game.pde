@@ -4,7 +4,9 @@ void setup() {
 }
 
 void draw() {
-
+  noCursor();
+  background(0);
+  tri(mouseX,mouseY,40,0);
 }
 
 
