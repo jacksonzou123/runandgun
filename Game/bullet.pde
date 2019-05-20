@@ -1,6 +1,5 @@
 abstract class bullet{
   int damage;
-  int color;
   float x;
   float y;
   float heading;
