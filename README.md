@@ -10,3 +10,6 @@ May 17
 May 20
 - Derek: Started work on bullet class
 - Jackson: added different classes, Player and Character, and trying to get head of the triangle to follow cursor
+
+May 21
+- Jackson: able to get cannon to follow player cursor
