@@ -1,4 +1,6 @@
 Player player;
+ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
+ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 
 void setup() {
   size(1000,800);
@@ -8,6 +10,14 @@ void setup() {
 void draw() {
   background(255);
   player.display();
+  for(int i = 0;i< friendlyBullets.size();i++){
+    friendlyBullets.get(i).move();
+    if(friendlyBullets.get(i).check()){
+      friendlyBullets.remove(i);
+      i--;
+    }
+    else friendlyBullets.get(i).display();
+  }
 }
 
 void keyPressed() {
@@ -23,4 +33,8 @@ void keyPressed() {
   if (keyCode == 68) {
     player.move(1);
   }
+}
+
+void mouseClicked() {
+  friendlyBullets.add(new friendlyBullet(player.x,player.y,-1*atan2(mouseY-player.y,mouseX-player.x)));
 }
