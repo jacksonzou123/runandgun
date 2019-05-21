@@ -10,7 +10,7 @@ class Player extends Character {
     rotate(atan2((mouseY-y),(mouseX-x)));
     ellipse(0,0,20,20);
     fill(255,0,0);
-    rect(0,-20,1,10);
+    rect(5,0,20,1);
     popMatrix();
   }
 
