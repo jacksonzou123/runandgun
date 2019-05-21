@@ -3,7 +3,7 @@ ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 
 void setup() {
-  size(1000,800);
+  size(1000,700);
   player = new Player(300,300);
 }
 

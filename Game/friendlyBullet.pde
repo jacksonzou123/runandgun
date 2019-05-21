@@ -22,6 +22,6 @@ class friendlyBullet extends bullet{
   }
   
   boolean check(){
-    return (getX() <= 0 || getX() >= 1000 || getY() <= 0 || getY() >= 800);
+    return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height);
   }
 }
