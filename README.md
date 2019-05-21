@@ -12,4 +12,4 @@ May 20
 - Jackson: added different classes, Player and Character, and trying to get head of the triangle to follow cursor
 
 May 21
-- Jackson: able to get cannon to follow player cursor
+- Jackson: able to get cannon to follow player cursor; also made a monster that can follow the player
