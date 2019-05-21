@@ -36,5 +36,5 @@ void keyPressed() {
 }
 
 void mouseClicked() {
-  friendlyBullets.add(new friendlyBullet(player.x,player.y,-1*atan2(mouseY-player.y,mouseX-player.x)));
+  friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
 }
