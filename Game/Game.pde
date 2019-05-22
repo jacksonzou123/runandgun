@@ -1,5 +1,6 @@
 Player player;
 Melee monster;
+boolean running;
 ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 
@@ -36,6 +37,21 @@ void keyPressed() {
   }
   if (keyCode == 68) {
     player.move(1);
+  }
+}
+
+void keyReleased(){
+    if (keyCode == 65) {
+    player.unmove(0);
+  }
+  if (keyCode == 87) {
+    player.unmove(2);
+  }
+  if (keyCode == 83) {
+    player.unmove(3);
+  }
+  if (keyCode == 68) {
+    player.unmove(1);
   }
 }
 
