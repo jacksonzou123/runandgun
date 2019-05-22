@@ -13,6 +13,10 @@ class Player extends Character {
   }
 
   void display() {
+    if(a) x-= 4;
+    if(d) x+= 4;
+    if(w) y-= 4;
+    if(s) y+= 4;
     fill(0, 0, 255);
     pushMatrix();
     translate(x, y);
@@ -24,21 +28,32 @@ class Player extends Character {
   }
 
   void move(int num) {
-    if (num == 0) {
-      x-=5*sin((float)Math.random());
+    if (num == 0) { //a
+      a = true;
     }
-    if (num == 1) {
-      x+=5*sin((float)Math.random());
+    if (num == 1) { //d
+      d = true;
     }
-    if (num == 2) {
-      y-=5*cos((float)Math.random());
+    if (num == 2) { //w
+      w = true;
     }
-    if (num == 3) {
-      y+=5*cos((float)Math.random());
+    if (num == 3) { //s
+      s = true;
     }
   }
   
   void unmove(int num){
-    
-  }
+    if (num == 0) { //a
+      a = false;
+    }
+    if (num == 1) { //d
+      d = false;
+    }
+    if (num == 2) { //w
+      w = false;
+    }
+    if (num == 3) { //s
+      s = false;
+    }
+}
 }
