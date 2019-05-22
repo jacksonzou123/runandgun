@@ -1,7 +1,7 @@
 class Mode{
   String mode;
   Mainmenu mainmenu;
-  //Stage stage;
+  Stage stage;
   
   Mode() {
     mode = "main";
@@ -26,11 +26,13 @@ class Mode{
   void mainmenu() {
     mainmenu.display();
     if (mainmenu.inbutton()) {
-      
+      mode = "stage";
+      stage = new Stage();
     }
   }
   
   void stage() {
+    stage.display();
   }
   
   void pause() {
