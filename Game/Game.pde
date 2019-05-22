@@ -1,6 +1,5 @@
 Player player;
 Melee monster;
-boolean running;
 ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 
