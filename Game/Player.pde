@@ -1,6 +1,15 @@
 class Player extends Character {
+  boolean w;
+  boolean a;
+  boolean s;
+  boolean d;
+  
   Player(float x, float y) {
     super(x, y);
+    w = false;
+    a = false;
+    s = false;
+    d = false;
   }
 
   void display() {
@@ -16,16 +25,20 @@ class Player extends Character {
 
   void move(int num) {
     if (num == 0) {
-      x-=5;
+      x-=5*sin((float)Math.random());
     }
     if (num == 1) {
-      x+=5;
+      x+=5*sin((float)Math.random());
     }
     if (num == 2) {
-      y-=5;
+      y-=5*cos((float)Math.random());
     }
     if (num == 3) {
-      y+=5;
+      y+=5*cos((float)Math.random());
     }
+  }
+  
+  void unmove(int num){
+    
   }
 }
