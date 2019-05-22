@@ -13,8 +13,8 @@ class friendlyBullet extends bullet{
   }
   
   void move(){
-    x+=5*cos(heading);
-    y+=5*sin(heading);
+    x+=8*cos(heading);
+    y+=8*sin(heading);
   }
   
   void display(){

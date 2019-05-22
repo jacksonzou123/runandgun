@@ -3,6 +3,14 @@ class Melee extends Monster{
     super(x,y);
   }
   
+  float getX(){
+    return x;
+  }
+  
+  float getY(){
+    return y;
+  }
+  
   void display() {
     pushMatrix();
     translate(x,y);
@@ -18,5 +26,9 @@ class Melee extends Monster{
     float scale = 2 * sqrt(pow((player.y-this.y),2)+pow((player.x-this.x),2));
     x+= (player.x-this.x)/scale;
     y+= (player.y-this.y)/scale;
+  }
+  
+  void shoot(){
+    enemyBullets.add(new enemyBullet(
   }
 }
