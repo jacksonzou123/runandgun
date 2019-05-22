@@ -9,8 +9,8 @@ class Melee extends Monster{
     rotate(atan2(player.y - this.y, player.x - this.x));
     fill(100,100,0);
     ellipse(0,0,10,10);
-    rect(0,3,10,1);
-    rect(0,-5,10,1);
+    rect(0,4,10,0.5);
+    rect(0,-5,10,0.5);
     popMatrix();
   }
   
