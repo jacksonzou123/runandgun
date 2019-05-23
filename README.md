@@ -18,3 +18,6 @@ May 21
 May 22
 - Derek: smoothed out player movements so that it's not so choppy. Started work on enemy shooting ai.
 
+May 23
+- Derek: Added hitboxes as well as aimed shooting for AI
+
