@@ -1,6 +1,6 @@
 Player player;
 Melee monster;
-boolean running;
+int p;
 ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 
@@ -8,6 +8,7 @@ void setup() {
   size(1000,700);
   player = new Player(300,300);
   monster = new Melee(100,100);
+  p = 0;
 }
 
 void draw() {
@@ -15,7 +16,10 @@ void draw() {
   player.display();
   monster.move(0);
   monster.display();
-  if(Math.random()<.01) monster.shoot();
+  p++;
+  if(p % 60 == 0) monster.shoot(); //so that the enemy shoots once per second
+  
+ //CHECKING BOUNDS AND DISPLAYING FREINDLY BULLETS
   for(int i = 0;i< friendlyBullets.size();i++){
     friendlyBullets.get(i).move();
     if(friendlyBullets.get(i).check()){
@@ -24,6 +28,8 @@ void draw() {
     }
     else friendlyBullets.get(i).display();
   }
+ 
+ //CHECKING BOUNDS AND DISPLAYING FOR ENEMY BULLETS
     for(int i = 0;i< enemyBullets.size();i++){
     enemyBullets.get(i).move();
     if(enemyBullets.get(i).check()){
