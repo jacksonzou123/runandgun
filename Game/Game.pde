@@ -1,9 +1,6 @@
 Player player;
 Melee monster;
-<<<<<<< HEAD
-
-=======
->>>>>>> 72daa98dc434b280b30a1e225abc87aca9ac1ef8
+int p;
 ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 
