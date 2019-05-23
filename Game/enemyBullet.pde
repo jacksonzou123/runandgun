@@ -18,10 +18,11 @@ class enemyBullet extends bullet{
   }
   
   void display(){
+    fill(0,255,0);
     ellipse(x,y,10,10);
   }
   
-    boolean check(){
+  boolean check(){
     return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height);
   }
 }

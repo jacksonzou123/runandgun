@@ -15,7 +15,7 @@ void draw() {
   player.display();
   monster.move(0);
   monster.display();
-  monster.shoot();
+  if(Math.random()<.01) monster.shoot();
   for(int i = 0;i< friendlyBullets.size();i++){
     friendlyBullets.get(i).move();
     if(friendlyBullets.get(i).check()){
@@ -23,6 +23,14 @@ void draw() {
       i--;
     }
     else friendlyBullets.get(i).display();
+  }
+    for(int i = 0;i< enemyBullets.size();i++){
+    enemyBullets.get(i).move();
+    if(enemyBullets.get(i).check()){
+      enemyBullets.remove(i);
+      i--;
+    }
+    else enemyBullets.get(i).display();
   }
 }
 

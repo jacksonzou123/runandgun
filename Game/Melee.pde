@@ -29,6 +29,6 @@ class Melee extends Monster{
   }
   
   void shoot(){
-    enemyBullets.add(new enemyBullet(
+    enemyBullets.add(new enemyBullet(x,y,0));
   }
 }
