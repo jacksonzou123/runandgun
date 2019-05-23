@@ -23,6 +23,9 @@ class friendlyBullet extends bullet{
   }
   
   boolean check(){
-    return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height);
+    if(Math.abs(x - monster.x) < 10 && Math.abs(y - monster.y) < 10){
+      return true;
+    }
+    else return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height);
   }
 }
