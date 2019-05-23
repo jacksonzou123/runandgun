@@ -39,6 +39,7 @@ class Player extends Character {
     }
     if (num == 3) { //s
       s = true;
+
     }
   }
   
