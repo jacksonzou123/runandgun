@@ -1,6 +1,10 @@
 class Melee extends Monster{
+  
+  int s;
+  
   Melee(float x, float y) {
     super(x,y);
+    s = 0;
   }
   
   float getX(){
@@ -12,6 +16,7 @@ class Melee extends Monster{
   }
   
   void display() {
+    s++;
     pushMatrix();
     translate(x,y);
     rotate(atan2(player.y - this.y, player.x - this.x));
@@ -29,6 +34,8 @@ class Melee extends Monster{
   }
   
   void shoot(){
+    if(s % 60 == 0){
     enemyBullets.add(new enemyBullet(x,y,6.2831-(-1*atan2(player.y-y,player.x-x))));
+    }
   }
 }
