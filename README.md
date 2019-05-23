@@ -8,8 +8,13 @@ May 17
 - Jackson: working on move method, able to get a circle to go up down left right using keyboard
 
 May 20
-- Derek: Started work on bullet class
+- Derek: Started work on bullet classes, enemy bullets and player created bullets
 - Jackson: added different classes, Player and Character, and trying to get head of the triangle to follow cursor
 
 May 21
+- Derek: Finished work with player created bullets, can shoot in direction of the cursor and can move in a straight line in any direction
 - Jackson: able to get cannon to follow player cursor; also made a monster that can follow the player
+
+May 22
+- Derek: smoothed out player movements so that it's not so choppy. Started work on enemy shooting ai.
+
