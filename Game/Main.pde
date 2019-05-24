@@ -10,7 +10,7 @@ class Mainmenu{
     popMatrix();
   }
   
-  boolean inbutton() {
+  boolean inButton() {
     if (mouseX - width/2 < 20 && mouseX - width/2 > -20 && mouseY - height/2 < 10 && mouseY - height/2 > 0) {
       return true;
     }

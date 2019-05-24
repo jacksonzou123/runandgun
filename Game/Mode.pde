@@ -5,6 +5,7 @@ class Mode{
   
   Mode() {
     mode = "main";
+    mainmenu = new Mainmenu();
   }
   
   void changeMode(String mode) {
@@ -25,10 +26,6 @@ class Mode{
   
   void mainmenu() {
     mainmenu.display();
-    if (mainmenu.inbutton()) {
-      mode = "stage";
-      stage = new Stage();
-    }
   }
   
   void stage() {

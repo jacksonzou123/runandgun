@@ -1,4 +1,4 @@
-class Stage() {
+class Stage{
   Player player;
   Melee monster;
   ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
@@ -7,6 +7,7 @@ class Stage() {
   Stage() {
     player = new Player(300,300);
     monster = new Melee(100,100);
+    display();
   }
   
   void display() {
