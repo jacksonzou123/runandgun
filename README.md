@@ -13,3 +13,9 @@ May 20
 
 May 21
 - Jackson: able to get cannon to follow player cursor; also made a monster that can follow the player
+
+May 23
+- Jackson: working on creating different modes
+
+May 23
+- Jackson: working on creating different modes 
