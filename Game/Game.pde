@@ -70,7 +70,8 @@ void keyReleased(){
   }
 }
 
-void mousePressed() {
+void mousePressed
+() {
   if(player.fireMode == 0){
   friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
   }

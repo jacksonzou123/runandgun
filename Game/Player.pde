@@ -15,10 +15,10 @@ class Player extends Character {
   }
 
   void display() {
-    if(a) x-= 4;
-    if(d) x+= 4;
-    if(w) y-= 4;
-    if(s) y+= 4;
+    if(a && !(x<15)) x-= 4;
+    if(d && !(x>985)) x+= 4;
+    if(w && !(y<15)) y-= 4;
+    if(s && !(y>685)) y+= 4;
     fill(0, 0, 255);
     pushMatrix();
     translate(x, y);
