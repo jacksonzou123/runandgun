@@ -3,45 +3,56 @@ Melee monster;
 ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 boolean rapid;
+String mode;
 int t; //helper variable for rapid fire
+Playbutton playbutton;
 
 void setup() {
   size(1000,700);
   player = new Player(300,300);
   monster = new Melee(100,100);
+  mode = "main";
+  playbutton = new Playbutton(width/2, height/2, 20, 20);
 }
 
 void draw() {
-  background(255);
-  player.display();
-  monster.move(0);
-  monster.display();
-  monster.shoot();
-  
-  //RAPID FIRE FUNCTION
-  if(rapid && t%5 == 0){
-   friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
+  System.out.println(mode);
+  if (mode.equals("main")) {
+    background(255);
+    playbutton.display();
   }
-  t++;
-  
- //CHECKING BOUNDS AND DISPLAYING FREINDLY BULLETS
-  for(int i = 0;i< friendlyBullets.size();i++){
-    friendlyBullets.get(i).move();
-    if(friendlyBullets.get(i).check()){
-      friendlyBullets.remove(i);
-      i--;
+  if (mode.equals("stage")) {
+    background(255);
+    player.display();
+    monster.move(0);
+    monster.display();
+    monster.shoot();
+    
+    //RAPID FIRE FUNCTION
+    if(rapid && t%5 == 0){
+     friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
     }
-    else friendlyBullets.get(i).display();
-  }
- 
- //CHECKING BOUNDS AND DISPLAYING FOR ENEMY BULLETS
-    for(int i = 0;i< enemyBullets.size();i++){
-    enemyBullets.get(i).move();
-    if(enemyBullets.get(i).check()){
-      enemyBullets.remove(i);
-      i--;
+    t++;
+    
+   //CHECKING BOUNDS AND DISPLAYING FREINDLY BULLETS
+    for(int i = 0;i< friendlyBullets.size();i++){
+      friendlyBullets.get(i).move();
+      if(friendlyBullets.get(i).check()){
+        friendlyBullets.remove(i);
+        i--;
+      }
+      else friendlyBullets.get(i).display();
     }
-    else enemyBullets.get(i).display();
+   
+   //CHECKING BOUNDS AND DISPLAYING FOR ENEMY BULLETS
+      for(int i = 0;i< enemyBullets.size();i++){
+      enemyBullets.get(i).move();
+      if(enemyBullets.get(i).check()){
+        enemyBullets.remove(i);
+        i--;
+      }
+      else enemyBullets.get(i).display();
+    }
   }
 }
 
@@ -79,18 +90,25 @@ void keyReleased(){
 }
 
 void mousePressed() {
-  if(player.fireMode == 0){
-  friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
+  if (mode == "main") {
+    if (playbutton.inButton()) {
+      mode = "stage";
+    }
   }
-  if(player.fireMode == 1){
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.523599)); //+ 30 degrees
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.261799)); //+ 15 degrees
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)))); //where the mouse is
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.261799)); //- 15 degrees
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.523599)); //- 30 degrees
-  }
-  if(player.fireMode == 2){
-    rapid = true;
+  if (mode == "stage") {
+    if(player.fireMode == 0){
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
+    }
+    if(player.fireMode == 1){
+      friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.523599)); //+ 30 degrees
+      friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.261799)); //+ 15 degrees
+      friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)))); //where the mouse is
+      friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.261799)); //- 15 degrees
+      friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.523599)); //- 30 degrees
+    }
+    if(player.fireMode == 2){
+      rapid = true;
+    }
   }
 }
 
