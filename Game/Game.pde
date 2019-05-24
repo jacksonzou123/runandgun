@@ -50,6 +50,9 @@ void keyPressed() {
   if (keyCode == 68) {
     player.move(1);
   }
+  if(keyCode == 69){
+    player.changeFireMode();
+  }
 }
 
 void keyReleased(){
@@ -68,5 +71,14 @@ void keyReleased(){
 }
 
 void mouseClicked() {
+  if(player.fireMode == 0){
   friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
+  }
+  if(player.fireMode == 1){
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.523599));
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.261799));
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.261799));
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.523599));
+  }
 }

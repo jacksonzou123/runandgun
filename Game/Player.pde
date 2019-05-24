@@ -3,6 +3,7 @@ class Player extends Character {
   boolean a;
   boolean s;
   boolean d;
+  int fireMode;
   
   Player(float x, float y) {
     super(x, y);
@@ -10,6 +11,7 @@ class Player extends Character {
     a = false;
     s = false;
     d = false;
+    fireMode = 0;
   }
 
   void display() {
@@ -57,4 +59,9 @@ class Player extends Character {
       s = false;
     }
 }
+  
+ void changeFireMode(){
+   if(fireMode >= 2) fireMode = 0;
+   else fireMode++;
+ }
 }
