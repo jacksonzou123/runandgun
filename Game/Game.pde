@@ -19,7 +19,7 @@ void setup() {
 }
 
 void draw() {
-  System.out.println(mode);
+  //System.out.println(mode);
   if (mode.equals("main")) {
     background(255);
     playbutton.display();
