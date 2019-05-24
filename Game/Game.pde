@@ -2,6 +2,7 @@ Player player;
 Melee monster;
 ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
+ArrayList<wall> walls = new ArrayList<wall>();
 boolean rapid;
 int t; //helper variable for rapid fire
 
@@ -9,10 +10,17 @@ void setup() {
   size(1000,700);
   player = new Player(300,300);
   monster = new Melee(100,100);
+  walls.add(new permWall(200,200));
 }
 
 void draw() {
   background(255);
+  
+  //CREATING WALLS
+  for(int i = 0;i<walls.size();i++){
+    walls.get(i).display();
+  }
+  
   player.display();
   monster.move(0);
   monster.display();

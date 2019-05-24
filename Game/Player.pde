@@ -12,9 +12,11 @@ class Player extends Character {
     s = false;
     d = false;
     fireMode = 0;
+    health = 100;
   }
 
   void display() {
+    rectMode(CORNER);
     if(a && !(x<15)) x-= 4;
     if(d && !(x>985)) x+= 4;
     if(w && !(y<15)) y-= 4;
