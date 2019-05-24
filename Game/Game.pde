@@ -3,10 +3,15 @@ Melee monster;
 ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 ArrayList<wall> walls = new ArrayList<wall>();
+<<<<<<< HEAD
 boolean rapid;
 String mode;
 int t; //helper variable for rapid fire
 Playbutton playbutton;
+=======
+boolean rapid; //helper variable for rapid fire (toggles on and off with mouse)
+int t; //helper variable for rapid fire (regulates fire rate)
+>>>>>>> aab2972f9f1ea3b856205f5e3400c56a2117a3a8
 
 void setup() {
   size(1000,700);
@@ -113,6 +118,7 @@ void keyReleased(){
 }
 
 void mousePressed() {
+<<<<<<< HEAD
   if (mode == "main") {
     if (playbutton.inButton()) {
       mode = "stage";
@@ -132,6 +138,20 @@ void mousePressed() {
     if(player.fireMode == 2){
       rapid = true;
     }
+=======
+  if(player.fireMode == 0){//REGULAR SINGLE SHOT MODE
+  friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
+  }
+  if(player.fireMode == 1){//SHOTGUN MODE
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.523599)); //+ 30 degrees
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.261799)); //+ 15 degrees
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)))); //where the mouse is
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.261799)); //- 15 degrees
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.523599)); //- 30 degrees
+  }
+  if(player.fireMode == 2){//RAPID FIRE MODE
+    rapid = true;
+>>>>>>> aab2972f9f1ea3b856205f5e3400c56a2117a3a8
   }
 }
 
