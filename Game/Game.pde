@@ -2,6 +2,8 @@ Player player;
 Melee monster;
 ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
+boolean rapid;
+int t; //helper variable for rapid fire
 
 void setup() {
   size(1000,700);
@@ -15,6 +17,12 @@ void draw() {
   monster.move(0);
   monster.display();
   monster.shoot();
+  
+  //RAPID FIRE FUNCTION
+  if(rapid && t%5 == 0){
+   friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
+  }
+  t++;
   
  //CHECKING BOUNDS AND DISPLAYING FREINDLY BULLETS
   for(int i = 0;i< friendlyBullets.size();i++){
@@ -70,16 +78,22 @@ void keyReleased(){
   }
 }
 
-void mousePressed
-() {
+void mousePressed() {
   if(player.fireMode == 0){
   friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
   }
   if(player.fireMode == 1){
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.523599));
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.261799));
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.261799));
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.523599));
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.523599)); //+ 30 degrees
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.261799)); //+ 15 degrees
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)))); //where the mouse is
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.261799)); //- 15 degrees
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.523599)); //- 30 degrees
   }
+  if(player.fireMode == 2){
+    rapid = true;
+  }
+}
+
+void mouseReleased(){
+  rapid = false;
 }
