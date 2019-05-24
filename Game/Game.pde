@@ -7,7 +7,7 @@ String mode;
 Playbutton playbutton;
 boolean rapid; //helper variable for rapid fire (toggles on and off with mouse)
 int t; //helper variable for rapid fire (regulates fire rate)
-
+Bars bars;
 
 void setup() {
   size(1000,700);
@@ -16,10 +16,11 @@ void setup() {
   mode = "main";
   playbutton = new Playbutton(width/2, height/2, 20, 20);
   walls.add(new permWall(200,200));
+  bars = new Bars();
 }
 
 void draw() {
-  System.out.println(mode);
+  //System.out.println(mode);
   if (mode.equals("main")) {
     background(255);
     playbutton.display();
@@ -27,6 +28,8 @@ void draw() {
   if (mode.equals("stage")) {
     background(255);
    
+    bars.display();
+    
     //CREATING WALLS
     for(int i = 0;i<walls.size();i++){
       walls.get(i).display();
