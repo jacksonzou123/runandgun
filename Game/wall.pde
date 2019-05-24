@@ -7,5 +7,13 @@ abstract class wall{
     this.y = y;
   }
   
+  float getX(){
+    return x;
+  }
+  
+  float getY(){
+    return y;
+  }
+  
   abstract void display();
 }
