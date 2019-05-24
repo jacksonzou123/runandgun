@@ -3,23 +3,19 @@ Melee monster;
 ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 ArrayList<wall> walls = new ArrayList<wall>();
-<<<<<<< HEAD
-boolean rapid;
 String mode;
-int t; //helper variable for rapid fire
 Playbutton playbutton;
-=======
 boolean rapid; //helper variable for rapid fire (toggles on and off with mouse)
 int t; //helper variable for rapid fire (regulates fire rate)
->>>>>>> aab2972f9f1ea3b856205f5e3400c56a2117a3a8
+
 
 void setup() {
   size(1000,700);
   player = new Player(300,300);
   monster = new Melee(100,100);
-<<<<<<< HEAD
   mode = "main";
   playbutton = new Playbutton(width/2, height/2, 20, 20);
+  walls.add(new permWall(200,200));
 }
 
 void draw() {
@@ -27,30 +23,14 @@ void draw() {
   if (mode.equals("main")) {
     background(255);
     playbutton.display();
-=======
-  walls.add(new permWall(200,200));
-}
-
-void draw() {
-  background(255);
-  
-  //CREATING WALLS
-  for(int i = 0;i<walls.size();i++){
-    walls.get(i).display();
-  }
-  
-  player.display();
-  monster.move(0);
-  monster.display();
-  monster.shoot();
-  
-  //RAPID FIRE FUNCTION
-  if(rapid && t%5 == 0){
-   friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
->>>>>>> 667d4b643fabebe53d996437f183cf2717a75ce0
   }
   if (mode.equals("stage")) {
     background(255);
+   
+    //CREATING WALLS
+    for(int i = 0;i<walls.size();i++){
+      walls.get(i).display();
+    }
     player.display();
     monster.move(0);
     monster.display();
@@ -118,40 +98,25 @@ void keyReleased(){
 }
 
 void mousePressed() {
-<<<<<<< HEAD
   if (mode == "main") {
     if (playbutton.inButton()) {
       mode = "stage";
     }
   }
   if (mode == "stage") {
-    if(player.fireMode == 0){
+    if(player.fireMode == 0){//REGULAR SINGLE SHOT MODE
     friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
     }
-    if(player.fireMode == 1){
+    if(player.fireMode == 1){//SHOTGUN MODE
       friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.523599)); //+ 30 degrees
       friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.261799)); //+ 15 degrees
       friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)))); //where the mouse is
       friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.261799)); //- 15 degrees
       friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.523599)); //- 30 degrees
     }
-    if(player.fireMode == 2){
+    if(player.fireMode == 2){//RAPID FIRE MODE
       rapid = true;
     }
-=======
-  if(player.fireMode == 0){//REGULAR SINGLE SHOT MODE
-  friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
-  }
-  if(player.fireMode == 1){//SHOTGUN MODE
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.523599)); //+ 30 degrees
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.261799)); //+ 15 degrees
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)))); //where the mouse is
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.261799)); //- 15 degrees
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.523599)); //- 30 degrees
-  }
-  if(player.fireMode == 2){//RAPID FIRE MODE
-    rapid = true;
->>>>>>> aab2972f9f1ea3b856205f5e3400c56a2117a3a8
   }
 }
 
