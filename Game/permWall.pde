@@ -6,7 +6,7 @@ class permWall extends wall{
   
   void display(){
     rectMode(CENTER);
-    fill(0);
-    rect(x,y,10,10);
+    fill(155);
+    rect(x,y,20,20);
   }
 }
