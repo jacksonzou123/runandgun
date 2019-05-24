@@ -2,6 +2,7 @@ Player player;
 Melee monster;
 ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
+ArrayList<wall> walls = new ArrayList<wall>();
 boolean rapid;
 String mode;
 int t; //helper variable for rapid fire
@@ -11,6 +12,7 @@ void setup() {
   size(1000,700);
   player = new Player(300,300);
   monster = new Melee(100,100);
+<<<<<<< HEAD
   mode = "main";
   playbutton = new Playbutton(width/2, height/2, 20, 20);
 }
@@ -20,6 +22,27 @@ void draw() {
   if (mode.equals("main")) {
     background(255);
     playbutton.display();
+=======
+  walls.add(new permWall(200,200));
+}
+
+void draw() {
+  background(255);
+  
+  //CREATING WALLS
+  for(int i = 0;i<walls.size();i++){
+    walls.get(i).display();
+  }
+  
+  player.display();
+  monster.move(0);
+  monster.display();
+  monster.shoot();
+  
+  //RAPID FIRE FUNCTION
+  if(rapid && t%5 == 0){
+   friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
+>>>>>>> 667d4b643fabebe53d996437f183cf2717a75ce0
   }
   if (mode.equals("stage")) {
     background(255);

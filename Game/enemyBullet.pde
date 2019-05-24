@@ -26,6 +26,11 @@ class enemyBullet extends bullet{
     if(Math.abs(x - player.x) < 10 && Math.abs(y - player.y) < 10){
       return true;
     }
-    else return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height);
+    for(int i = 0;i<walls.size();i++){
+      if(Math.abs(x - walls.get(i).getX()) < 10 && Math.abs(y - walls.get(i).getY()) < 10){
+        return true;
+      }
+    }
+    return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height);
   }
 }
