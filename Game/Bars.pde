@@ -1,7 +1,7 @@
 class Bars{
   void display() {
-    rectMode(CORNERS);
+    rectMode(CORNER);
     fill(255);
-    rect(0, 750, width, 50);
+    rect(0, 625, width, 75);
   }
 }
