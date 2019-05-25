@@ -27,9 +27,8 @@ void draw() {
   }
   if (mode.equals("stage")) {
     background(255);
-   
     bars.display();
-    
+    player.changeHealth(-1);
     //CREATING WALLS
     for(int i = 0;i<walls.size();i++){
       walls.get(i).display();
