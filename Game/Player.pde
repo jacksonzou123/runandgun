@@ -4,6 +4,7 @@ class Player extends Character {
   boolean s;
   boolean d;
   int fireMode;
+  int[] ammos;
   
   Player(float x, float y) {
     super(x, y);
@@ -13,8 +14,45 @@ class Player extends Character {
     d = false;
     fireMode = 0;
     health = 100;
+    ammos = new int[3];
+    ammos[1] = 10;
+    ammos[2] = 20;
   }
-
+  
+  boolean hasAmmo(int index) {
+    if (ammos[index] > 0) {
+      ammos[index]--;
+      return true;
+    }
+    return false;
+  }
+ 
+  String getWeapon() {
+    if (fireMode == 0) {
+      return "PISTOL";
+    }
+    if (fireMode == 1) {
+      return "SHOTGUN";
+    }
+    if (fireMode == 2) {
+      return "ASSAULT RIFLE";
+    }
+    return "blah";
+  }
+  
+  String getAmmo() {
+    if (fireMode == 0) {
+      return "INFINITE";
+    }
+    if (fireMode == 1) {
+      return "" + ammos[1];
+    }
+    if (fireMode == 2) {
+      return "" + ammos[2];
+    }
+    return "blah";
+  }
+  
   void display() {
     rectMode(CORNER);
     if(a && !(x<15)) x-= 4;
