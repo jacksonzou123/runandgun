@@ -3,6 +3,7 @@ ArrayList<Melee> monsters = new ArrayList<Melee>();
 ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 ArrayList<wall> walls = new ArrayList<wall>();
+spawn spawners;
 String mode;
 Playbutton playbutton;
 boolean rapid; //helper variable for rapid fire (toggles on and off with mouse)
@@ -16,6 +17,7 @@ void setup() {
   monsters.add(new Melee(100,20));
   monsters.add(new Melee(2,150));
   monsters.add(new Melee(100,100));
+  spawners = new monsterspawn(millis(),0,0);
   mode = "main";
   playbutton = new Playbutton(width/2, height/2, 20, 20);
   walls.add(new permWall(200,200));
@@ -31,6 +33,9 @@ void draw() {
   if (mode.equals("stage")) {
     background(255);
     bars.display();
+    if (spawners.check(millis())) {
+      spawners.create();
+    }
     if (player.health == 0) {
       mode = "main";
     }
