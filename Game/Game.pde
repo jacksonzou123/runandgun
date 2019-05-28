@@ -60,16 +60,7 @@ void draw() {
           friendlyBullets.remove(i);
           i--;
         }
-      else {
-        for (int j = 0; j < monsters.size(); j++) {
-          if(friendlyBullets.get(i).check(monsters.get(j))){
-            friendlyBullets.remove(i);
-            monsters.remove(j);
-            i--;
-          }
           else friendlyBullets.get(i).display();
-        }
-      }
     }
    
    //CHECKING BOUNDS AND DISPLAYING FOR ENEMY BULLETS

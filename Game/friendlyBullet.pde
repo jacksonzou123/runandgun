@@ -26,15 +26,22 @@ class friendlyBullet extends bullet{
     if(Math.abs(x - monster.x) < 10 && Math.abs(y - monster.y) < 10){
       return true;
     }
-        for(int i = 0;i<walls.size();i++){
-      if(Math.abs(x - walls.get(i).getX()) < 10 && Math.abs(y - walls.get(i).getY()) < 10){
-        return true;
-      }
-    }
     return false;
   }
   
   boolean check() {
+     for(int i = 0;i<walls.size();i++){
+      if(Math.abs(x - walls.get(i).getX()) < 10 && Math.abs(y - walls.get(i).getY()) < 10){
+        return true;
+      }
+    }
+    for(int i = 0; i < monsters.size(); i++){
+      if(Math.abs(x - monsters.get(i).getX()) < 10 && Math.abs(y - monsters.get(i).getY()) < 10){
+        monsters.remove(i);
+        i--;
+        return true;
+      }
+    }
     return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height-75);
   }
 }
