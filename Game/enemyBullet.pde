@@ -24,6 +24,7 @@ class enemyBullet extends bullet{
   
   boolean check(){
     if(Math.abs(x - player.x) < 10 && Math.abs(y - player.y) < 10){
+      player.changeHealth(-1);
       return true;
     }
     for(int i = 0;i<walls.size();i++){
