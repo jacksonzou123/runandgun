@@ -1,5 +1,6 @@
 abstract class Character{
   int health;
+  int maxhealth;
   float x,y;
   
   Character(float x, float y) {
@@ -20,6 +21,9 @@ abstract class Character{
   
   void changeHealth(int num) {
     health+=num;
+    if (health > maxhealth) {
+      health = maxhealth;
+    }
   }
   
 }

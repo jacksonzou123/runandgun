@@ -4,6 +4,7 @@ ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 ArrayList<wall> walls = new ArrayList<wall>();
 spawn spawners;
+pspawn heals;
 String mode;
 Playbutton playbutton;
 boolean rapid; //helper variable for rapid fire (toggles on and off with mouse)
@@ -17,11 +18,12 @@ void setup() {
   monsters.add(new Melee(100,20));
   monsters.add(new Melee(2,150));
   monsters.add(new Melee(100,100));
-  spawners = new monsterspawn(millis(),0,0);
+  spawners = new monsterspawn(millis(),100,100,5000);
   mode = "main";
   playbutton = new Playbutton(width/2, height/2, 20, 20);
   walls.add(new permWall(200,200));
   bars = new Bars();
+  heals = new healspawn(millis(),900,500,5000);
 }
 
 void draw() {
@@ -32,18 +34,35 @@ void draw() {
   }
   if (mode.equals("stage")) {
     background(255);
-    bars.display();
-    if (spawners.check(millis())) {
-      spawners.create();
-    }
+        
     if (player.health == 0) {
       mode = "main";
     }
+    
+    //display the health/ammo bars on bottom
+    bars.display();
+
+    //display the spawners and creates new monsters
+    spawners.display();
+    if (spawners.check(millis())) {
+      spawners.create();
+    }
+    
+    //display the heal and adds health
+    heals.display(); 
+    if (heals.check(millis())) {
+      player.changeHealth(20);
+    }
+    
     //CREATING WALLS
     for(int i = 0;i<walls.size();i++){
       walls.get(i).display();
     }
+    
+    //displays player
     player.display();
+    
+    //displays and moves monsters
     for (Melee i: monsters) {
       i.move(0);
       i.display();
