@@ -62,9 +62,6 @@ class Player extends Character {
     }
 }
  
- boolean wallCheck(String direction){
-  
- }
  
  void changeFireMode(){
    if(fireMode >= 2) fireMode = 0;
