@@ -20,7 +20,8 @@ May 22
 
 May 23
 - Derek: Added hitboxes as well as aimed shooting for AI also added fire modes like shotgun and rapid fire and boundaries at the edges of screen
+- Jackson: Working on creating different menus: have a main menu and a stage menu (for playing)
 
 May 24
 - Derek: Added walls and their hitboxes
-
+- Jackson: Added in a status bar on bottom that displays health and ammo. Ammo goes down as you shoot and health bar changes as health changes
