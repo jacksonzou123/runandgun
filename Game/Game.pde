@@ -31,7 +31,10 @@ void draw() {
     if (player.health > 0) {
       player.changeHealth(-1);
     }
-    //CREATING WALLS
+    if (player.health == 0) {
+      player.changeHealth(100);
+    }
+    //CREATING WALLSd
     for(int i = 0;i<walls.size();i++){
       walls.get(i).display();
     }
