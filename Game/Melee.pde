@@ -7,13 +7,6 @@ class Melee extends Monster{
     s = 0;
   }
   
-  float getX(){
-    return x;
-  }
-  
-  float getY(){
-    return y;
-  }
   
   void display() {
     s++;

@@ -3,4 +3,12 @@ abstract class Monster extends Character{
     super(x,y);
   }
   
+    float getX(){
+    return x;
+  }
+  
+  float getY(){
+    return y;
+  }
+  
 }
