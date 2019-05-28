@@ -31,13 +31,10 @@ void draw() {
   if (mode.equals("stage")) {
     background(255);
     bars.display();
-    if (player.health > 0) {
-      player.changeHealth(-1);
-    }
     if (player.health == 0) {
-      player.changeHealth(100);
+      mode = "main";
     }
-    //CREATING WALLSd
+    //CREATING WALLS
     for(int i = 0;i<walls.size();i++){
       walls.get(i).display();
     }

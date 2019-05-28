@@ -99,7 +99,7 @@ class Player extends Character {
       s = false;
     }
 }
-  
+
  void changeFireMode(){
    if(fireMode >= 2) fireMode = 0;
    else fireMode++;

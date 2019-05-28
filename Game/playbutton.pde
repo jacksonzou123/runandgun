@@ -5,7 +5,7 @@ class Playbutton extends button{
   
   void display() {
     rectMode(CENTER);
-    fill(0);
+    fill(186,186,186);
     rect(x,y,l,w);
   }
 }
