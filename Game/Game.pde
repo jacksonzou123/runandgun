@@ -1,5 +1,5 @@
 Player player;
-Melee monster;
+ArrayList<Melee> monsters = new ArrayList<Melee>();
 ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 ArrayList<wall> walls = new ArrayList<wall>();
@@ -12,7 +12,10 @@ Bars bars;
 void setup() {
   size(1000,700);
   player = new Player(300,300);
-  monster = new Melee(100,100);
+  monsters.add(new Melee(100,150));
+  monsters.add(new Melee(100,20));
+  monsters.add(new Melee(2,150));
+  monsters.add(new Melee(100,100));
   mode = "main";
   playbutton = new Playbutton(width/2, height/2, 20, 20);
   walls.add(new permWall(200,200));
@@ -39,9 +42,11 @@ void draw() {
       walls.get(i).display();
     }
     player.display();
-    monster.move(0);
-    monster.display();
-    monster.shoot();
+    for (Melee i: monsters) {
+      i.move(0);
+      i.display();
+      i.shoot();
+    }
     
     //RAPID FIRE FUNCTION
     if(rapid && t%5 == 0){
@@ -55,10 +60,19 @@ void draw() {
     for(int i = 0;i< friendlyBullets.size();i++){
       friendlyBullets.get(i).move();
       if(friendlyBullets.get(i).check()){
-        friendlyBullets.remove(i);
-        i--;
+          friendlyBullets.remove(i);
+          i--;
+        }
+      else {
+        for (int j = 0; j < monsters.size(); j++) {
+          if(friendlyBullets.get(i).check(monsters.get(j))){
+            friendlyBullets.remove(i);
+            monsters.remove(j);
+            i--;
+          }
+          else friendlyBullets.get(i).display();
+        }
       }
-      else friendlyBullets.get(i).display();
     }
    
    //CHECKING BOUNDS AND DISPLAYING FOR ENEMY BULLETS

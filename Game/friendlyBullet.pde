@@ -22,7 +22,7 @@ class friendlyBullet extends bullet{
     ellipse(x,y,10,10);
   }
   
-  boolean check(){
+  boolean check(Monster monster){
     if(Math.abs(x - monster.x) < 10 && Math.abs(y - monster.y) < 10){
       return true;
     }
@@ -31,6 +31,10 @@ class friendlyBullet extends bullet{
         return true;
       }
     }
+    return false;
+  }
+  
+  boolean check() {
     return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height-75);
   }
 }
