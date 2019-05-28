@@ -31,6 +31,6 @@ class enemyBullet extends bullet{
         return true;
       }
     }
-    return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height);
+    return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height-75);
   }
 }

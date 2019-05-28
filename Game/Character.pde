@@ -11,4 +11,8 @@ abstract class Character{
   
   abstract void move(int num);
   
+  void changeHealth(int num) {
+    health+=num;
+  }
+  
 }
