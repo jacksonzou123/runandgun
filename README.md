@@ -40,6 +40,8 @@ May 24
     Ammo decreases when gun is fired, and different weapons show different names
 
 May 27
+- Derek:
+    Fixed the problem with the array that Jackson had
 - Jackson:
     Added in an array of monsters, no longer just long
     Game crashes whenever bullets hit monster: array is messed up
@@ -51,3 +53,9 @@ May 28
 - Jackson:
     Added in a spawner for monsters: create one every x amount of seconds
     Added in a health pack that regenerates on the map: changed health bar so health doesn't surpass the max
+
+May 29
+- Derek 
+    Reorganized code to lower number of tabs
+    Made start screen look better
+    Tightened shotgun cone
