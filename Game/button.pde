@@ -18,3 +18,16 @@ abstract class button{
   
   abstract void display();
 }
+
+//PLAYBUTTON CODE
+class Playbutton extends button{
+  Playbutton(float x, float y, float l, float w) {
+    super(x,y,l,w);
+  }
+  
+  void display() {
+    rectMode(CENTER);
+    fill(186,186,186);
+    rect(x,y,l,w);
+  }
+}
