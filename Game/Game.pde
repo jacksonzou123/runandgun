@@ -3,7 +3,7 @@ ArrayList<Melee> monsters = new ArrayList<Melee>();
 ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 ArrayList<wall> walls = new ArrayList<wall>();
-spawn spawners;
+spawn[] spawners;
 pspawn[] gets;
 String mode;
 Playbutton playbutton;
@@ -18,7 +18,7 @@ void setup() {
   monsters.add(new Melee(100,20));
   monsters.add(new Melee(2,150));
   monsters.add(new Melee(100,100));
-  spawners = new monsterspawn(millis(),100,100,5000);
+  spawners = new spawn[] {new monsterspawn(millis(),100,100,5000)};
   mode = "main";
   playbutton = new Playbutton(width/2, height/2, 20, 20);
   walls.add(new permWall(200,200));
@@ -43,13 +43,14 @@ void draw() {
     bars.display();
 
     //display the spawners and creates new monsters
-    spawners.display();
-    if (spawners.check(millis())) {
-      spawners.create();
+    for (spawn spawner: spawners) {
+      spawner.display();
+      if (spawner.check(millis())) {
+        spawner.create();
+      }
     }
     
-    
-    //display the heal and adds health
+    //display the player packs (heal/shotgun)
     for (pspawn pack: gets) {
       pack.display(); 
       if (pack.check(millis())) {
