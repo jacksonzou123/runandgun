@@ -27,6 +27,8 @@ class Player extends Character {
     }
     return false;
   }
+  
+  
  
   String getWeapon() {
     if (fireMode == 0) {
@@ -41,7 +43,11 @@ class Player extends Character {
     return "blah";
   }
   
-  String getAmmo() {
+  void addAmmo(int gun, int ammo) {
+    ammos[gun] += ammo;
+  }
+  
+  String getGun() {
     if (fireMode == 0) {
       return "INFINITE";
     }
@@ -99,10 +105,10 @@ class Player extends Character {
     if (num == 3) { //s
       s = false;
     }
-}
+  }
 
- void changeFireMode(){
+  void changeFireMode(){
    if(fireMode >= 2) fireMode = 0;
    else fireMode++;
- }
+  }
 }

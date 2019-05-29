@@ -4,7 +4,7 @@ ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
 ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
 ArrayList<wall> walls = new ArrayList<wall>();
 spawn spawners;
-pspawn heals;
+pspawn[] gets;
 String mode;
 Playbutton playbutton;
 boolean rapid; //helper variable for rapid fire (toggles on and off with mouse)
@@ -23,7 +23,7 @@ void setup() {
   playbutton = new Playbutton(width/2, height/2, 20, 20);
   walls.add(new permWall(200,200));
   bars = new Bars();
-  heals = new healspawn(millis(),900,500,5000);
+  gets = new pspawn[] {new healspawn(millis(),900,500,5000), new shotgunpack(millis(), 900, 400, 5000)};
 }
 
 void draw() {
@@ -48,10 +48,13 @@ void draw() {
       spawners.create();
     }
     
+    
     //display the heal and adds health
-    heals.display(); 
-    if (heals.check(millis())) {
-      player.changeHealth(20);
+    for (pspawn pack: gets) {
+      pack.display(); 
+      if (pack.check(millis())) {
+        pack.give();
+      }
     }
     
     //CREATING WALLS

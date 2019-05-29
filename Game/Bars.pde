@@ -11,6 +11,6 @@ class Bars{
     fill(0);
     text("HEALTH: " + player.health + "/" + player.maxhealth, 220, 653);
     text("Weapon: " + player.getWeapon(), 650, 653);
-    text("Ammo: " + player.getAmmo(), 650, 670);
+    text("Ammo: " + player.getGun(), 650, 670);
   }
 }
