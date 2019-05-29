@@ -45,6 +45,9 @@ May 27
     Game crashes whenever bullets hit monster: array is messed up
 
 May 28
+- Derek: 
+    Added in system for despawning enemies once killed
+    Made walls look nicer
 - Jackson:
     Added in a spawner for monsters: create one every x amount of seconds
     Added in a health pack that regenerates on the map: changed health bar so health doesn't surpass the max
