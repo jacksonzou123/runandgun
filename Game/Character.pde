@@ -8,6 +8,13 @@ abstract class Character{
     this.y = y;
   }
   
+  Character(float x, float y, int maxhealth) {
+   this.x = x;
+   this.y = y;
+   this.maxhealth = maxhealth;
+   health = maxhealth;
+  }
+  
   abstract void display();
   
   abstract void move(int num);

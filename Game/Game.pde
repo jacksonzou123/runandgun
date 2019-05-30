@@ -21,10 +21,10 @@ void setup() {
 
 void stage1() {
   player = new Player(300,300);
-  monsters.add(new Melee(100,150));
-  monsters.add(new Melee(100,20));
-  monsters.add(new Melee(2,150));
-  monsters.add(new Melee(100,100));
+  monsters.add(new Melee(100,150,100));
+  monsters.add(new Melee(100,20,100));
+  monsters.add(new Melee(2,150,100));
+  monsters.add(new Melee(100,100,100));
   spawners = new spawn[] {new monsterspawn(millis(),100,100,5000)};
   walls.add(new permWall(200,200));
   bars = new Bars();

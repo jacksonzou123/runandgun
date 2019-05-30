@@ -30,7 +30,7 @@ class monsterspawn extends spawn{
   }
   
   void create() {
-    monsters.add(new Melee(x,y));
+    monsters.add(new Melee(x,y,100));
   }
   
   void display() {

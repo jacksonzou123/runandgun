@@ -1,6 +1,6 @@
 abstract class Monster extends Character{
-  Monster(float x, float y) {
-    super(x,y);
+  Monster(float x, float y, int maxhealth) {
+    super(x,y,maxhealth);
   }
   
     float getX(){
@@ -18,10 +18,9 @@ class Melee extends Monster{
   
   int s;
   
-  Melee(float x, float y) {
-    super(x,y);
+  Melee(float x, float y, int maxhealth) {
+    super(x,y, maxhealth);
     s = 0;
-    health = 100;
   }
   
   
