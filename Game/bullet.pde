@@ -86,6 +86,7 @@ class friendlyBullet extends bullet{
   
   boolean check(Monster monster){
     if(Math.abs(x - monster.x) < 10 && Math.abs(y - monster.y) < 10){
+      monster.changeHealth(-10);
       return true;
     }
     return false;

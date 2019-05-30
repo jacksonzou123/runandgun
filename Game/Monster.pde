@@ -21,6 +21,7 @@ class Melee extends Monster{
   Melee(float x, float y) {
     super(x,y);
     s = 0;
+    health = 100;
   }
   
   
@@ -47,5 +48,12 @@ class Melee extends Monster{
     if(s % 60 == 0){
     enemyBullets.add(new enemyBullet(x,y,6.2831-(-1*atan2(player.y-y,player.x-x))));
     }
+  }
+  
+  boolean check() {
+    if (health <= 0) {
+       return true;
+    }
+    return false;
   }
 }
