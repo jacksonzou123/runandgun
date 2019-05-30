@@ -39,11 +39,18 @@ void stage2() {
 }
 
 void draw() {
+  t++;
   //System.out.println(mode);
   if (mode.equals("main")) {
     background(255);
-    playbutton1.display();
+        playbutton1.display();
     playbutton2.display();
+      textSize(20);
+  fill(0);
+  if(t%75 < 45){
+  text("Click here to start",width/2-85,height/2);
+  }
+
   }
   if (mode.equals("stage")) {
     background(255);
@@ -97,7 +104,7 @@ void draw() {
        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
      }
     }
-    t++;
+    //t++;
     
    //CHECKING BOUNDS AND DISPLAYING FREINDLY BULLETS
     for(int i = 0;i< friendlyBullets.size();i++){
@@ -171,11 +178,11 @@ void mousePressed() {
     }
     if(player.fireMode == 1){//SHOTGUN MODE
       if (player.hasAmmo(1)) {
-        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.523599)); //+ 30 degrees
-        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.261799)); //+ 15 degrees
+        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.0872665+0.0872665)); //+ 20 degrees
+        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.0872665)); //+ 10 degrees
         friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)))); //where the mouse is
-        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.261799)); //- 15 degrees
-        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.523599)); //- 30 degrees
+        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.0872665)); //- 10 degrees
+        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.0872665-0.0872665)); //- 20 degrees
       }
     }
     if(player.fireMode == 2){//RAPID FIRE MODE
