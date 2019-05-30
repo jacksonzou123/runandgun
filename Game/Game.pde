@@ -21,12 +21,12 @@ void setup() {
 
 void stage1() {
   player = new Player(300,300);
-  monsters.add(new Melee(100,150,100));
-  monsters.add(new Melee(100,20,100));
-  monsters.add(new Melee(2,150,100));
-  monsters.add(new Melee(100,100,100));
-  spawners = new spawn[] {new monsterspawn(millis(),100,100,5000)};
-  walls.add(new permWall(200,200));
+  spawners = new spawn[] {new monsterspawn(millis(),10,100,6000), 
+                          new monsterspawn(millis()+1000,10,200,6000), 
+                          new monsterspawn(millis()+2000,10,300,6000), 
+                          new monsterspawn(millis()+3000,width - 10,100,6000), 
+                          new monsterspawn(millis()+4000,width - 10,200,6000),
+                          new monsterspawn(millis()+5000,width - 10,300,6000)};
   bars = new Bars();
   gets = new pspawn[] {new healspawn(millis(), 900, 500, 5000), new shotgunpack(millis(), 900, 400, 5000), new assaultpack(millis(), 900, 300, 5000)};
 }
@@ -43,12 +43,12 @@ void draw() {
   //System.out.println(mode);
   if (mode.equals("main")) {
     background(255);
-        playbutton1.display();
+    playbutton1.display();
     playbutton2.display();
-      textSize(20);
-  fill(0);
-  if(t%75 < 45){
-  text("Click here to start",width/2-85,height/2);
+    textSize(20);
+    fill(0);
+    if(t%75 < 45){
+    text("Click here to start",width/2-85,height/2);
   }
 
   }
@@ -128,35 +128,39 @@ void draw() {
 }
 
 void keyPressed() {
-  if (keyCode == 65) {
-    player.move(0);
-  }
-  if (keyCode == 87) {
-    player.move(2);
-  }
-  if (keyCode == 83) {
-    player.move(3);
-  }
-  if (keyCode == 68) {
-    player.move(1);
-  }
-  if(keyCode == 69){
-    player.changeFireMode();
+  if (mode == "stage") {
+    if (keyCode == 65) {
+      player.move(0);
+    }
+    if (keyCode == 87) {
+      player.move(2);
+    }
+    if (keyCode == 83) {
+      player.move(3);
+    }
+    if (keyCode == 68) {
+      player.move(1);
+    }
+    if(keyCode == 69){
+      player.changeFireMode();
+    }
   }
 }
 
 void keyReleased(){
+  if (mode == "stage") {
     if (keyCode == 65) {
-    player.unmove(0);
-  }
-  if (keyCode == 87) {
-    player.unmove(2);
-  }
-  if (keyCode == 83) {
-    player.unmove(3);
-  }
-  if (keyCode == 68) {
-    player.unmove(1);
+      player.unmove(0);
+    }
+    if (keyCode == 87) {
+      player.unmove(2);
+    }
+    if (keyCode == 83) {
+      player.unmove(3);
+    }
+    if (keyCode == 68) {
+      player.unmove(1);
+    }
   }
 }
 
