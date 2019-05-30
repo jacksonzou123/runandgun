@@ -121,7 +121,7 @@ void draw() {
       }
       else enemyBullets.get(i).display();
     }
-    
+    /*
     if(!walls.get(0).checkLeft()){
       player.unmove(1);
     }
@@ -134,6 +134,7 @@ void draw() {
     if(!walls.get(0).checkDown()){
       player.unmove(2);
     }
+    */
   }
 }
 

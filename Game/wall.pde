@@ -19,7 +19,7 @@ abstract class wall{
   
   boolean checkLeft(){
     for(int i = 0; i < walls.size(); i++){
-      if(x - player.x <= 20 && Math.abs(y - player.y)<20){
+      if(player.x < x && x - player.x <= 20 && Math.abs(y - player.y)<20){
         return false;
       }
     }
@@ -28,7 +28,7 @@ abstract class wall{
   
   boolean checkRight(){
         for(int i = 0; i < walls.size(); i++){
-      if(player.x - x <= 20 && Math.abs(y - player.y)<20){
+      if(player.x > x && player.x - x <= 20 && Math.abs(y - player.y)<20){
         return false;
       }
     }
@@ -37,7 +37,7 @@ abstract class wall{
   
   boolean checkUp(){
         for(int i = 0; i < walls.size(); i++){
-      if(y - player.y  <= 20 && Math.abs(x - player.x)<20){
+      if(player.y < y && y - player.y  <= 20 && Math.abs(x - player.x)<20){
         return false;
       }
     }
@@ -46,7 +46,7 @@ abstract class wall{
   
   boolean checkDown(){
         for(int i = 0; i < walls.size(); i++){
-      if(player.y - y <= 20 && Math.abs(x - player.x)<20){
+      if(player.y > y && player.y - y <= 20 && Math.abs(x - player.x)<20){
         return false;
       }
     }
