@@ -84,13 +84,13 @@ class friendlyBullet extends bullet{
     ellipse(x,y,10,10);
   }
   
-  boolean check(Monster monster){
-    if(Math.abs(x - monster.x) < 10 && Math.abs(y - monster.y) < 10){
-      monster.changeHealth(-10);
-      return true;
-    }
-    return false;
-  }
+  //boolean check(Monster monster){
+  //  if(Math.abs(x - monster.x) < 10 && Math.abs(y - monster.y) < 10){
+  //    monster.changeHealth(-20);
+  //    return true;
+  //  }
+  //  return false;
+  //}
   
   boolean check() {
      for(int i = 0;i<walls.size();i++){
@@ -100,8 +100,7 @@ class friendlyBullet extends bullet{
     }
     for(int i = 0; i < monsters.size(); i++){
       if(Math.abs(x - monsters.get(i).getX()) < 10 && Math.abs(y - monsters.get(i).getY()) < 10){
-        monsters.remove(i);
-        i--;
+        monsters.get(i).changeHealth(-20);
         return true;
       }
     }

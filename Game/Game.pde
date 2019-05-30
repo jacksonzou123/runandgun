@@ -80,10 +80,15 @@ void draw() {
     player.display();
     
     //displays and moves monsters
-    for (Melee i: monsters) {
-      i.move(0);
-      i.display();
-      i.shoot();
+    for (int i = 0; i < monsters.size(); i++) {
+      monsters.get(i).move(0);
+      monsters.get(i).display();
+      monsters.get(i).shoot();
+      System.out.println(""+ monsters.get(i).health);
+      if (monsters.get(i).check()) {
+        monsters.remove(i);
+        i--;
+      }
     }
     
     //RAPID FIRE FUNCTION
