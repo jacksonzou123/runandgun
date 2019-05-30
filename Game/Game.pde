@@ -91,7 +91,6 @@ void draw() {
       monsters.get(i).move(0);
       monsters.get(i).display();
       monsters.get(i).shoot();
-      System.out.println(""+ monsters.get(i).health);
       if (monsters.get(i).check()) {
         monsters.remove(i);
         i--;

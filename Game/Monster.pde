@@ -35,6 +35,10 @@ class Melee extends Monster{
     rect(0,4,10,0.5);
     rect(0,-5,10,0.5);
     popMatrix();
+    fill(255,0,0);
+    rect(x - 6, y - 10, 12, 2);
+    fill(0,255,0);
+    rect(x - 6, y - 10, (float)health/maxhealth * 12, 2);
   }
   
   void move(int i) {
