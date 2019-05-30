@@ -6,31 +6,44 @@ ArrayList<wall> walls = new ArrayList<wall>();
 spawn[] spawners;
 pspawn[] gets;
 String mode;
-Playbutton playbutton;
+Playbutton playbutton1;
+Playbutton playbutton2;
 boolean rapid; //helper variable for rapid fire (toggles on and off with mouse)
 int t; //helper variable for rapid fire (regulates fire rate)
 Bars bars;
 
 void setup() {
   size(1000,700);
+  mode = "main";
+  playbutton1 = new Playbutton(width/2, height/2, 20, 20);
+  playbutton2 = new Playbutton(width/2, height/2 + 200, 20, 20);
+}
+
+void stage1() {
   player = new Player(300,300);
   monsters.add(new Melee(100,150));
   monsters.add(new Melee(100,20));
   monsters.add(new Melee(2,150));
   monsters.add(new Melee(100,100));
   spawners = new spawn[] {new monsterspawn(millis(),100,100,5000)};
-  mode = "main";
-  playbutton = new Playbutton(width/2, height/2, 20, 20);
   walls.add(new permWall(200,200));
   bars = new Bars();
   gets = new pspawn[] {new healspawn(millis(), 900, 500, 5000), new shotgunpack(millis(), 900, 400, 5000), new assaultpack(millis(), 900, 300, 5000)};
+}
+
+void stage2() {
+  player = new Player(300,300);
+  spawners = new spawn[0];
+  bars = new Bars();
+  gets = new pspawn[0];
 }
 
 void draw() {
   //System.out.println(mode);
   if (mode.equals("main")) {
     background(255);
-    playbutton.display();
+    playbutton1.display();
+    playbutton2.display();
   }
   if (mode.equals("stage")) {
     background(255);
@@ -138,8 +151,13 @@ void keyReleased(){
 
 void mousePressed() {
   if (mode == "main") {
-    if (playbutton.inButton()) {
+    if (playbutton1.inButton()) {
       mode = "stage";
+      stage1();
+    }
+    if (playbutton2.inButton()) {
+      mode = "stage";
+      stage2();
     }
   }
   if (mode == "stage") {
