@@ -16,17 +16,16 @@ void setup() {
   size(1000,700);
   mode = "main";
   playbutton1 = new Playbutton(width/2, height/2, 20, 20);
-  playbutton2 = new Playbutton(width/2, height/2 + 200, 20, 20);
-}
+  playbutton2 = new Playbutton(width/2, height/2 + 200, 20, 20);a
 
 void stage1() {
   player = new Player(300,300);
-  spawners = new spawn[] {new monsterspawn(millis(),10,100,6000), 
-                          new monsterspawn(millis()+1000,10,200,6000), 
-                          new monsterspawn(millis()+2000,10,300,6000), 
-                          new monsterspawn(millis()+3000,width - 10,100,6000), 
-                          new monsterspawn(millis()+4000,width - 10,200,6000),
-                          new monsterspawn(millis()+5000,width - 10,300,6000)};
+  spawners = new spawn[] {new monsterspawn(millis(),10,100,3000), 
+                          new monsterspawn(millis()+100,10,200,3000), 
+                          new monsterspawn(millis()+200,10,300,3000), 
+                          new monsterspawn(millis()+300,width - 10,100,3000), 
+                          new monsterspawn(millis()+400,width - 10,200,3000),
+                          new monsterspawn(millis()+500,width - 10,300,3000)};
   bars = new Bars();
   gets = new pspawn[] {new healspawn(millis(), 900, 500, 5000), new shotgunpack(millis(), 900, 400, 5000), new assaultpack(millis(), 900, 300, 5000)};
 }
