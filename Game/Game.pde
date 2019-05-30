@@ -36,6 +36,7 @@ void stage2() {
   spawners = new spawn[0];
   bars = new Bars();
   gets = new pspawn[0];
+  walls.add(new permWall(200,200));
 }
 
 void draw() {
@@ -48,7 +49,7 @@ void draw() {
       textSize(20);
   fill(0);
   if(t%75 < 45){
-  text("Click here to start",width/2-85,height/2);
+  text("Click a button to start",width/2-85,50);
   }
 
   }
@@ -120,20 +121,33 @@ void draw() {
       }
       else enemyBullets.get(i).display();
     }
+    
+    if(!walls.get(0).checkLeft()){
+      player.unmove(1);
+    }
+    if(!walls.get(0).checkRight()){
+      player.unmove(0);
+    }
+    if(!walls.get(0).checkUp()){
+      player.unmove(3);
+    }
+    if(!walls.get(0).checkDown()){
+      player.unmove(2);
+    }
   }
 }
 
 void keyPressed() {
-  if (keyCode == 65) {
+  if (keyCode == 65 && walls.get(0).checkRight()){ //MOVING LEFT
     player.move(0);
   }
-  if (keyCode == 87) {
+  if (keyCode == 87 && walls.get(0).checkDown()) { //MOVING UP
     player.move(2);
   }
-  if (keyCode == 83) {
+  if (keyCode == 83 && walls.get(0).checkUp()) { //MOVING DOWN
     player.move(3);
   }
-  if (keyCode == 68) {
+  if (keyCode == 68 && walls.get(0).checkLeft()) { //MOVING RIGHT
     player.move(1);
   }
   if(keyCode == 69){
