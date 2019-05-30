@@ -23,7 +23,7 @@ void setup() {
   playbutton = new Playbutton(width/2, height/2, 20, 20);
   walls.add(new permWall(200,200));
   bars = new Bars();
-  gets = new pspawn[] {new healspawn(millis(),900,500,5000), new shotgunpack(millis(), 900, 400, 5000)};
+  gets = new pspawn[] {new healspawn(millis(), 900, 500, 5000), new shotgunpack(millis(), 900, 400, 5000), new assaultpack(millis(), 900, 300, 5000)};
 }
 
 void draw() {
