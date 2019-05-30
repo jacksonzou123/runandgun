@@ -16,6 +16,42 @@ abstract class wall{
   }
   
   abstract void display();
+  
+  boolean checkLeft(){
+    for(int i = 0; i < walls.size(); i++){
+      if(player.x < x && x - player.x <= 20 && Math.abs(y - player.y)<20){
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  boolean checkRight(){
+        for(int i = 0; i < walls.size(); i++){
+      if(player.x > x && player.x - x <= 20 && Math.abs(y - player.y)<20){
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  boolean checkUp(){
+        for(int i = 0; i < walls.size(); i++){
+      if(player.y < y && y - player.y  <= 20 && Math.abs(x - player.x)<20){
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  boolean checkDown(){
+        for(int i = 0; i < walls.size(); i++){
+      if(player.y > y && player.y - y <= 20 && Math.abs(x - player.x)<20){
+        return false;
+      }
+    }
+    return true;
+  }
 }
 
 //PERMWALL CODE

@@ -35,6 +35,7 @@ void stage2() {
   spawners = new spawn[0];
   bars = new Bars();
   gets = new pspawn[0];
+  walls.add(new permWall(200,200));
 }
 
 void draw() {
@@ -123,26 +124,38 @@ void draw() {
       }
       else enemyBullets.get(i).display();
     }
+    /*
+    if(!walls.get(0).checkLeft()){
+      player.unmove(1);
+    }
+    if(!walls.get(0).checkRight()){
+      player.unmove(0);
+    }
+    if(!walls.get(0).checkUp()){
+      player.unmove(3);
+    }
+    if(!walls.get(0).checkDown()){
+      player.unmove(2);
+    }
+    */
   }
 }
 
 void keyPressed() {
-  if (mode == "stage") {
-    if (keyCode == 65) {
-      player.move(0);
-    }
-    if (keyCode == 87) {
-      player.move(2);
-    }
-    if (keyCode == 83) {
-      player.move(3);
-    }
-    if (keyCode == 68) {
-      player.move(1);
-    }
-    if(keyCode == 69){
-      player.changeFireMode();
-    }
+  if (keyCode == 65 && walls.get(0).checkRight()){ //MOVING LEFT
+    player.move(0);
+  }
+  if (keyCode == 87 && walls.get(0).checkDown()) { //MOVING UP
+    player.move(2);
+  }
+  if (keyCode == 83 && walls.get(0).checkUp()) { //MOVING DOWN
+    player.move(3);
+  }
+  if (keyCode == 68 && walls.get(0).checkLeft()) { //MOVING RIGHT
+    player.move(1);
+  }
+  if(keyCode == 69){
+    player.changeFireMode();
   }
 }
 

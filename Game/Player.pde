@@ -62,10 +62,10 @@ class Player extends Character {
   
   void display() {
     rectMode(CORNER);
-    if(a && !(x<15)) x-= 4;
-    if(d && !(x>985)) x+= 4;
-    if(w && !(y<15)) y-= 4;
-    if(s && !(y>615)) y+= 4;
+    if(a && !(x<15) && walls.get(0).checkRight()) x-= 4;
+    if(d && !(x>985) && walls.get(0).checkLeft()) x+= 4;
+    if(w && !(y<15) && walls.get(0).checkDown()) y-= 4;
+    if(s && !(y>615) && walls.get(0).checkUp()) y+= 4;
     fill(0, 0, 255);
     pushMatrix();
     translate(x, y);
