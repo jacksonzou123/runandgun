@@ -11,29 +11,44 @@ May 17
     Circle can move up, down left, right, but movement is a little clunky and looks unstable
 
 May 20
-- Derek: Started work on bullet classes, enemy bullets and player created bullets
+- Derek: 
+    Started work on bullet classes
+    Created green friendly bullets
+    Created red enemy bullets
+            
 - Jackson:
     Added classes Character, Player and Monster
     Gave the player object a gun and trying to get that to aim at the cursor
 
 May 21
-- Derek: Finished work with player created bullets, can shoot in direction of the cursor and can move in a straight line in any direction
+- Derek: 
+    Finished work with player created bullets
+    Added math to shoot in direction of the cursor 
+    Added math so that bullets can move in a straight line in any direction
 - Jackson:
     Able to get cannon to follow cursor (add to use atan2 instead of regular atan)
     Used same method to get a monster to follow the player
 
 May 22
-- Derek: smoothed out player movements so that it's not so choppy. Started work on enemy shooting ai.
+- Derek: 
+    Smoothed out player movements so that it's not so choppy
+    Started work on enemy shooting ai.
 
 May 23
-- Derek: Added hitboxes as well as aimed shooting for AI also added fire modes like shotgun and rapid fire and boundaries at the edges of screen
+- Derek:
+    Added hitboxes for enemies and player
+    Finished aimed shooting for AI 
+    Added fire modes like shotgun and rapid fire
+    Added boundaries at the edges of screen
 - Jackson:
     Created two different menus: main and stage
     Main has only one button that changes mode to stage
     Stage has previous features inside
 
 May 24
-- Derek: Added walls and their hitboxes
+- Derek: 
+    Added wall objeects
+    Added code to allow walls to stop bullets 
 - Jackson:
     Added in a status bar that shows health and ammo
     Outside health bar is fixed, and inside health bar changes based on percent of max health
@@ -42,6 +57,7 @@ May 24
 May 27
 - Derek:
     Fixed the problem with the array that Jackson had
+    Started working on making walls block player movement
 - Jackson:
     Added in an array of monsters, no longer just long
     Game crashes whenever bullets hit monster: array is messed up
@@ -59,3 +75,8 @@ May 29
     Reorganized code to lower number of tabs
     Made start screen look better
     Tightened shotgun cone
+    
+May 30
+- Derek 
+    Made wall block player movement 
+    Made text in starting screen blink so that it looks more gamelike 
