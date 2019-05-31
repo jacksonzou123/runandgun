@@ -9,7 +9,7 @@ abstract class button{
     this.w = w;
   }
   
-  boolean inButton() {
+  boolean inButton() {//checks if mouse is over the button 
     if (abs(mouseX - x) < l/2 && (abs(mouseY - y) < w/2)) {
       return true;
     }

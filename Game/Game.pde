@@ -1,15 +1,15 @@
 Player player;
-ArrayList<Melee> monsters = new ArrayList<Melee>();
-ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>();
-ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>();
-ArrayList<wall> walls = new ArrayList<wall>();
+ArrayList<Melee> monsters = new ArrayList<Melee>(); //arraylist to keep track of enemies
+ArrayList<enemyBullet> enemyBullets = new ArrayList<enemyBullet>(); //array list to keep track of enemy bullets
+ArrayList<friendlyBullet> friendlyBullets = new ArrayList<friendlyBullet>(); //arraylist to keep track of friendly bullets 
+ArrayList<wall> walls = new ArrayList<wall>(); //arraylist to keep track of walls
 spawn[] spawners;
 pspawn[] gets;
 String mode;
 Playbutton playbutton1;
 Playbutton playbutton2;
 boolean rapid; //helper variable for rapid fire (toggles on and off with mouse)
-int t; //helper variable for rapid fire (regulates fire rate)
+int t; //helper variable for rapid fire (regulates fire rate) and other stuff (like blinking title)
 Bars bars;
 Boss boss;
 
@@ -20,6 +20,7 @@ void setup() {
   playbutton2 = new Playbutton(width/2, height/2 + 200, 20, 20);
 }
 
+//SETUP FOR FIRST LEVEL
 void stage1() {
   player = new Player(300,300);
   spawners = new spawn[] {new monsterspawn(millis(),10,100,5000), 
@@ -33,6 +34,7 @@ void stage1() {
   walls.add(new permWall(0,0));
 }
 
+//SETUP FOR SECOND LEVEL
 void stage2() {
   player = new Player(300,300);
   spawners = new spawn[0];
@@ -45,13 +47,13 @@ void stage2() {
 void draw() {
   t++;
   //System.out.println(mode);
-  if (mode.equals("main")) {
+  if (mode.equals("main")) {//MENU SCREEN
     background(255);
     playbutton1.display();
     playbutton2.display();
     textSize(20);
     fill(0);
-    if(t%75 < 45){
+    if(t%75 < 45){ //so that the text blinks 
     text("Click here to start",width/2-85,50);
   }
 
@@ -59,7 +61,7 @@ void draw() {
   if (mode.equals("stage")) {
     background(255);
         
-    if (player.health == 0) {
+    if (player.health <= 0) {//returns player to menu once health reaches zero 
       mode = "main";
     }
     
@@ -82,7 +84,7 @@ void draw() {
       }
     }
     
-    //CREATING WALLS
+    //DISPLAYING WALLS
     for(int i = 0;i<walls.size();i++){
       walls.get(i).display();
     }
@@ -131,20 +133,6 @@ void draw() {
       }
       else enemyBullets.get(i).display();
     }
-    /*
-    if(!walls.get(0).checkLeft()){
-      player.unmove(1);
-    }
-    if(!walls.get(0).checkRight()){
-      player.unmove(0);
-    }
-    if(!walls.get(0).checkUp()){
-      player.unmove(3);
-    }
-    if(!walls.get(0).checkDown()){
-      player.unmove(2);
-    }
-    */
   }
 }
 
@@ -164,27 +152,30 @@ void keyPressed() {
   if(keyCode == 69){
     player.changeFireMode();
   }
+  if(keyCode == 70){
+    walls.add(new tempWall(player.x+20,player.y));
+  }
 }
 
 void keyReleased(){
   if (mode == "stage") {
-    if (keyCode == 65) {
+    if (keyCode == 65) { //STOP MOVING LEFT
       player.unmove(0);
     }
-    if (keyCode == 87) {
+    if (keyCode == 87) { //STOP MOVING UP
       player.unmove(2);
     }
-    if (keyCode == 83) {
+    if (keyCode == 83) {//STOP MOVING DOWN
       player.unmove(3);
     }
-    if (keyCode == 68) {
+    if (keyCode == 68) {//STOP MOVING RIGHT
       player.unmove(1);
     }
   }
 }
 
 void mousePressed() {
-  if (mode == "main") {
+  if (mode == "main") {//looks for button clicking 
     if (playbutton1.inButton()) {
       mode = "stage";
       stage1();

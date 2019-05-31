@@ -7,6 +7,8 @@ class Bars{
     rect(200, 640, 350, 15);
     fill(0,255,0);
     rect(200, 640, 350 * player.health / player.maxhealth, 15);
+    
+    //PLAYER STAT BARS
     textSize(13);
     fill(0);
     text("HEALTH: " + player.health + "/" + player.maxhealth, 220, 653);

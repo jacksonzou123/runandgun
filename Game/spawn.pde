@@ -1,4 +1,4 @@
-abstract class spawn{
+abstract class spawn{ //MONSTER SPAWNER 
  float x,y;
  int starttime;
  int interval;
