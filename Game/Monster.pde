@@ -48,7 +48,7 @@ class Melee extends Monster{
   }
   
   void shoot(){
-    if(s % 60 == 0){
+    if(Math.random()< .005){
     enemyBullets.add(new enemyBullet(x,y,6.2831-(-1*atan2(player.y-y,player.x-x))));
     }
   }

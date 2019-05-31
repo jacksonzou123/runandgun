@@ -16,6 +16,7 @@ abstract class wall{
   }
   
   abstract void display();
+  abstract void damage();
   
   boolean checkLeft(){//checks left side to see if player is too close 
     for(int i = 0; i < walls.size(); i++){
@@ -63,7 +64,32 @@ class permWall extends wall{
   
   void display(){
     rectMode(CENTER);
+    fill(155);
+    rect(x,y,20,20);
+  }
+  
+  void damage(){
+  }
+}
+
+class tempWall extends wall{
+  int hits;
+  tempWall(float x,float y){
+    super(x,y);
+    hits = 5;
+  }
+    void display(){
+    rectMode(CENTER);
     fill(0,206,209);
     rect(x,y,20,20);
   }
+  
+  void damage(){
+    if(hits<=0){
+      x = -5;
+      y = -5;
+    }
+    else hits--;
+  }
+  
 }

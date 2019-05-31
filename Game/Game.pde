@@ -82,7 +82,7 @@ void draw() {
       }
     }
     
-    //CREATING WALLS
+    //DISPLAYING WALLS
     for(int i = 0;i<walls.size();i++){
       walls.get(i).display();
     }
@@ -146,6 +146,9 @@ void keyPressed() {
   }
   if(keyCode == 69){
     player.changeFireMode();
+  }
+  if(keyCode == 70){
+    walls.add(new tempWall(player.x+20,player.y));
   }
 }
 

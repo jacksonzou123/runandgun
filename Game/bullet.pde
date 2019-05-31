@@ -52,6 +52,7 @@ class enemyBullet extends bullet{
     }
     for(int i = 0;i<walls.size();i++){//if it's hit a wall
       if(Math.abs(x - walls.get(i).getX()) < 10 && Math.abs(y - walls.get(i).getY()) < 10){
+        walls.get(i).damage();
         return true;
       }
     }
