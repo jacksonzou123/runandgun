@@ -13,7 +13,7 @@ class Player extends Character {
     s = false;
     d = false;
     fireMode = 0;
-    maxhealth = 200;
+    maxhealth = 100;
     health = 100;
     ammos = new int[3];
     ammos[1] = 10;

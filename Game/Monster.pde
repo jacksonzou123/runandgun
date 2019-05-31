@@ -20,7 +20,7 @@ class Melee extends Monster{
   
   Melee(float x, float y, int maxhealth) {
     super(x,y, maxhealth);
-    s = 0;
+    s = millis();
   }
   
   
@@ -48,8 +48,9 @@ class Melee extends Monster{
   }
   
   void shoot(){
-    if(s % 60 == 0){
-    enemyBullets.add(new enemyBullet(x,y,6.2831-(-1*atan2(player.y-y,player.x-x))));
+    if(millis() - s  >= 3000){
+      s = millis();    
+      enemyBullets.add(new enemyBullet(x,y,6.2831-(-1*atan2(player.y-y,player.x-x))));
     }
   }
   
