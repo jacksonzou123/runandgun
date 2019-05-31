@@ -10,7 +10,7 @@ abstract class bullet{
   public bullet(float x,float y,float heading,int damage){
     this.x = x;
     this.y = y;
-    this.heading = heading;
+    this.heading = heading; //what angle direction it's facing (in radians)
     this.damage = damage;
   }
   
@@ -44,17 +44,18 @@ class enemyBullet extends bullet{
     ellipse(x,y,10,10);
   }
   
+  //checks if it needs to be deleted 
   boolean check(){
-    if(Math.abs(x - player.x) < 10 && Math.abs(y - player.y) < 10){
+    if(Math.abs(x - player.x) < 10 && Math.abs(y - player.y) < 10){//if it's hit the player 
       player.changeHealth(-1);
       return true;
     }
-    for(int i = 0;i<walls.size();i++){
+    for(int i = 0;i<walls.size();i++){//if it's hit a wall
       if(Math.abs(x - walls.get(i).getX()) < 10 && Math.abs(y - walls.get(i).getY()) < 10){
         return true;
       }
     }
-    return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height-75);
+    return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height-75); //if it's out of bounds 
   }
 }
 
@@ -84,26 +85,19 @@ class friendlyBullet extends bullet{
     ellipse(x,y,10,10);
   }
   
-  //boolean check(Monster monster){
-  //  if(Math.abs(x - monster.x) < 10 && Math.abs(y - monster.y) < 10){
-  //    monster.changeHealth(-20);
-  //    return true;
-  //  }
-  //  return false;
-  //}
-  
-  boolean check() {
-     for(int i = 0;i<walls.size();i++){
+
+  boolean check() {//checks if it needs to be deleted 
+     for(int i = 0;i<walls.size();i++){//if it's hit a wall
       if(Math.abs(x - walls.get(i).getX()) < 10 && Math.abs(y - walls.get(i).getY()) < 10){
         return true;
       }
     }
-    for(int i = 0; i < monsters.size(); i++){
+    for(int i = 0; i < monsters.size(); i++){//if it's hit a monster 
       if(Math.abs(x - monsters.get(i).getX()) < 10 && Math.abs(y - monsters.get(i).getY()) < 10){
         monsters.get(i).changeHealth(-20);
         return true;
       }
     }
-    return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height-75);
+    return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height-75);//if it's out of bounds 
   }
 }

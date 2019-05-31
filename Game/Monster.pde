@@ -53,6 +53,7 @@ class Melee extends Monster{
     }
   }
   
+  //helper method for monster deletion 
   boolean check() {
     if (health <= 0) {
        return true;

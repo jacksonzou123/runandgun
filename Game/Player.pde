@@ -29,7 +29,7 @@ class Player extends Character {
   }
   
   
- 
+ //for weapon name in stat bar
   String getWeapon() {
     if (fireMode == 0) {
       return "PISTOL";
@@ -43,10 +43,12 @@ class Player extends Character {
     return "blah";
   }
   
+  //adds ammo for ammo pickup 
   void addAmmo(int gun, int ammo) {
     ammos[gun] += ammo;
   }
   
+  //for ammo number in stat bar 
   String getGun() {
     if (fireMode == 0) {
       return "INFINITE";
@@ -76,6 +78,8 @@ class Player extends Character {
     popMatrix();
   }
 
+
+  //to start moving in a certain direction 
   void move(int num) {
     if (num == 0) { //a
       a = true;
@@ -92,6 +96,8 @@ class Player extends Character {
     }
   }
   
+  
+  //to stop moving in a certain direction 
   void unmove(int num){
     if (num == 0) { //a
       a = false;
@@ -107,6 +113,7 @@ class Player extends Character {
     }
   }
 
+  //switches weapons 
   void changeFireMode(){
    if(fireMode >= 2) fireMode = 0;
    else fireMode++;
