@@ -80,3 +80,4 @@ May 30
 - Derek 
     Made wall block player movement 
     Made text in starting screen blink so that it looks more gamelike 
+    Randomized enemy shooting patterns
