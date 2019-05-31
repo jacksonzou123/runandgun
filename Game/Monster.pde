@@ -48,9 +48,10 @@ class Melee extends Monster{
   }
   
   void shoot(){
-    if(millis() - s  >= 3000){
+    if(millis() - s  >= 1500){
       s = millis();    
-      enemyBullets.add(new enemyBullet(x,y,6.2831-(-1*atan2(player.y-y,player.x-x))));
+      float a = (random(100)-50)/100;
+      enemyBullets.add(new enemyBullet(x,y,6.2831-(-1*atan2(player.y-y,player.x-x))+a));
     }
   }
   
