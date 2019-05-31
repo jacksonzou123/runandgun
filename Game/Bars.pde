@@ -14,5 +14,12 @@ class Bars{
     text("HEALTH: " + player.health + "/" + player.maxhealth, 220, 653);
     text("Weapon: " + player.getWeapon(), 650, 653);
     text("Ammo: " + player.getGun(), 650, 670);
+    
+    //Boss Stats
+    rectMode(CORNER);
+    fill(255,0,0);
+    rect(200,0,600,15);
+    fill(0,255,0);
+    rect(200,0,boss.health/boss.maxhealth * 600,15);
   }
 }

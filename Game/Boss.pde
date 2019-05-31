@@ -1,9 +1,10 @@
 //and so it begins
 abstract class Boss{
-  int health;
-  int mode; 
+  int health, maxhealth;
+  int m; 
   int timer;
   float x, y;
+  float angle;
   
   Boss(float x, float y) {
     this.x = x;
@@ -25,12 +26,15 @@ abstract class Boss{
 class BossUno extends Boss{
   BossUno(float x, float y) {
     super(x,y);
+    maxhealth = 1000;
+    health = 1000;
   }
   
   void display() {
     rectMode(CENTER);
     pushMatrix();
     translate(x,y);
+    rotate(angle);
     //main body
     fill(#f95001);
     rect(0,0,400,300);
@@ -47,6 +51,11 @@ class BossUno extends Boss{
     rect(-310,95,10,100);
     rectMode(CENTER);
     rect(-305,220,50,50);
+    fill(0,120,120);
+    rect(-140,135,20,30);
+    rect(-70,135,20,30);
+    rect(70,135,20,30);
+    rect(140,135,20,30);
     //right arm
     fill(#f95001);
     rectMode(CENTER);
@@ -63,6 +72,24 @@ class BossUno extends Boss{
   }
   
   void entrance() {
+    if (millis() - timer < 1500) {
+      angle = angle + 0.01;
+    }
+    else if (millis() - timer > 1500 && millis() - timer < 3000) {
+      angle = angle - 0.02;
+    }
+    else if (millis() - timer > 3000 && millis() - timer < 4500) {
+      angle = angle + 0.02;
+    }
+    else if (millis() - timer > 4500 && millis() - timer < 6000) {
+      angle = angle - 0.01;
+    }
+    else if (millis() - timer > 6000 && millis() - timer < 9000) {
+      y+=1;
+    }
+    else {
+      mode = "stage";
+    }
     
   }
   

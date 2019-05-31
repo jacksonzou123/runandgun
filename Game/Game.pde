@@ -22,7 +22,7 @@ void setup() {
 
 //SETUP FOR FIRST LEVEL
 void stage1() {
-  player = new Player(300,300);
+  player = new Player(500,600);
   spawners = new spawn[] {new monsterspawn(millis(),10,100,3000), 
                           new monsterspawn(millis()+100,10,200,3000), 
                           new monsterspawn(millis()+200,10,300,3000), 
@@ -30,9 +30,9 @@ void stage1() {
                           new monsterspawn(millis()+400,width - 10,200,3000),
                           new monsterspawn(millis()+500,width - 10,300,3000)};
   bars = new Bars();
-  gets = new pspawn[] {new healspawn(millis(), 100, 600, 5000), new shotgunpack(millis(), width/2 - 100, 300, 5000), new assaultpack(millis(), width/2 + 100, 300, 5000)};
+  gets = new pspawn[] {new healspawn(millis(), 100, 600, 30000), new shotgunpack(millis(), width/2 - 100, 300, 20000), new assaultpack(millis(), width/2 + 100, 300, 20000)};
   walls.add(new permWall(0,0));
-  boss = new BossUno(-1000,-1000);
+  boss = new BossUno(500,-100);
 }
 
 //SETUP FOR SECOND LEVEL
@@ -55,10 +55,24 @@ void draw() {
     textSize(20);
     fill(0);
     if(t%75 < 45){ //so that the text blinks 
-    text("Click here to start",width/2-85,50);
+      text("Click here to start",width/2-85,50);
+    }
   }
-
+  
+  if (mode.equals("animate")) {
+    background(255);
+    for (spawn spawner: spawners) {
+      spawner.display();
+    }
+    for (pspawn pack: gets) {
+      pack.display();
+    }
+    player.display();
+    boss.display();
+    boss.entrance();
+    bars.display();
   }
+  
   if (mode.equals("stage")) {
     background(255);
         
@@ -138,23 +152,25 @@ void draw() {
 }
 
 void keyPressed() {
-  if (keyCode == 65 && walls.get(0).checkRight()){ //MOVING LEFT
-    player.move(0);
-  }
-  if (keyCode == 87 && walls.get(0).checkDown()) { //MOVING UP
-    player.move(2);
-  }
-  if (keyCode == 83 && walls.get(0).checkUp()) { //MOVING DOWN
-    player.move(3);
-  }
-  if (keyCode == 68 && walls.get(0).checkLeft()) { //MOVING RIGHT
-    player.move(1);
-  }
-  if(keyCode == 69){
-    player.changeFireMode();
-  }
-  if(keyCode == 70){
-    walls.add(new tempWall(player.x+20,player.y));
+  if (mode == "stage") {
+    if (keyCode == 65 && walls.get(0).checkRight()){ //MOVING LEFT
+      player.move(0);
+    }
+    if (keyCode == 87 && walls.get(0).checkDown()) { //MOVING UP
+      player.move(2);
+    }
+    if (keyCode == 83 && walls.get(0).checkUp()) { //MOVING DOWN
+      player.move(3);
+    }
+    if (keyCode == 68 && walls.get(0).checkLeft()) { //MOVING RIGHT
+      player.move(1);
+    }
+    if(keyCode == 69){
+      player.changeFireMode();
+    }
+    if(keyCode == 70){
+      walls.add(new tempWall(player.x+20,player.y));
+    }
   }
 }
 
@@ -178,7 +194,7 @@ void keyReleased(){
 void mousePressed() {
   if (mode == "main") {//looks for button clicking 
     if (playbutton1.inButton()) {
-      mode = "stage";
+      mode = "animate";
       stage1();
     }
     if (playbutton2.inButton()) {

@@ -23,7 +23,7 @@ abstract class bullet{
 class enemyBullet extends bullet{
   
   public enemyBullet(float x,float y,float heading){
-    super(x,y,heading,1);
+    super(x,y,heading,-20);
   }
   
   float getX(){
@@ -47,7 +47,7 @@ class enemyBullet extends bullet{
   //checks if it needs to be deleted 
   boolean check(){
     if(Math.abs(x - player.x) < 10 && Math.abs(y - player.y) < 10){//if it's hit the player 
-      player.changeHealth(-10);
+      player.changeHealth(damage);
       return true;
     }
     for(int i = 0;i<walls.size();i++){//if it's hit a wall
@@ -65,7 +65,7 @@ class enemyBullet extends bullet{
 class friendlyBullet extends bullet{
   
   public friendlyBullet(float x,float y,float heading){
-    super(x,y,heading,1);
+    super(x,y,heading,-20);
   }
   
   float getX(){
