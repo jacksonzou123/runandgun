@@ -16,7 +16,8 @@ void setup() {
   size(1000,700);
   mode = "main";
   playbutton1 = new Playbutton(width/2, height/2, 20, 20);
-  playbutton2 = new Playbutton(width/2, height/2 + 200, 20, 20);a
+  playbutton2 = new Playbutton(width/2, height/2 + 200, 20, 20);
+}
 
 void stage1() {
   player = new Player(300,300);
@@ -28,6 +29,7 @@ void stage1() {
                           new monsterspawn(millis()+500,width - 10,300,3000)};
   bars = new Bars();
   gets = new pspawn[] {new healspawn(millis(), 900, 500, 5000), new shotgunpack(millis(), 900, 400, 5000), new assaultpack(millis(), 900, 300, 5000)};
+  walls.add(new permWall(0,0));
 }
 
 void stage2() {
@@ -48,7 +50,7 @@ void draw() {
     textSize(20);
     fill(0);
     if(t%75 < 45){
-    text("Click here to start",width/2-85,height/2);
+    text("Click here to start",width/2-85,50);
   }
 
   }
