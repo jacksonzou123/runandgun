@@ -11,6 +11,7 @@ Playbutton playbutton2;
 boolean rapid; //helper variable for rapid fire (toggles on and off with mouse)
 int t; //helper variable for rapid fire (regulates fire rate)
 Bars bars;
+Boss boss;
 
 void setup() {
   size(1000,700);
@@ -28,7 +29,7 @@ void stage1() {
                           new monsterspawn(millis()+400,width - 10,200,5000),
                           new monsterspawn(millis()+500,width - 10,300,5000)};
   bars = new Bars();
-  gets = new pspawn[] {new healspawn(millis(), 900, 500, 5000), new shotgunpack(millis(), 900, 400, 5000), new assaultpack(millis(), 900, 300, 5000)};
+  gets = new pspawn[] {new healspawn(millis(), 100, 600, 5000), new shotgunpack(millis(), width/2 - 100, 300, 5000), new assaultpack(millis(), width/2 + 100, 300, 5000)};
   walls.add(new permWall(0,0));
 }
 
@@ -38,6 +39,7 @@ void stage2() {
   bars = new Bars();
   gets = new pspawn[0];
   walls.add(new permWall(200,200));
+  boss = new BossUno(500, 200);
 }
 
 void draw() {
@@ -63,7 +65,7 @@ void draw() {
     
     //display the health/ammo bars on bottom
     bars.display();
-
+    
     //display the spawners and creates new monsters
     for (spawn spawner: spawners) {
       spawner.display();
@@ -87,6 +89,9 @@ void draw() {
     
     //displays player
     player.display();
+    
+    //displays boss
+    boss.display();
     
     //displays and moves monsters
     for (int i = 0; i < monsters.size(); i++) {

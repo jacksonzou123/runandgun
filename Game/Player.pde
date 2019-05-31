@@ -16,8 +16,8 @@ class Player extends Character {
     maxhealth = 100;
     health = 100;
     ammos = new int[3];
-    ammos[1] = 10;
-    ammos[2] = 20;
+    ammos[1] = 15;
+    ammos[2] = 100;
   }
   
   boolean hasAmmo(int index) {
