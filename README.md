@@ -1,5 +1,16 @@
 # Final
 
+Our game is a boss fighting game where your objective is to defeat the boss and the minions that spawn to defend the boss. 
+
+Controls:
+W - Move upward
+A - Move left
+S - Move downward
+D - Move right
+F - Place defensive shield
+E - Switch weapon
+Left Mouse - Shoot
+
 May 16
 - Repo created
 
