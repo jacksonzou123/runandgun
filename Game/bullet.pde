@@ -99,6 +99,17 @@ class friendlyBullet extends bullet{
         return true;
       }
     }
+    if (x < boss.x + 200 && x > boss.x - 200 && y < boss.y + 150 && y > boss.y - 150 ||
+        x < boss.x - 200 && x > boss.x - 300 && y < boss.y + 105 && y > boss.y + 95 ||
+        x < boss.x + 300 && x > boss.x + 200 && y < boss.y + 105 && y > boss.y + 95 ||
+        x < boss.x - 300 && x > boss.x - 310 && y < boss.y + 195 && y > boss.y + 95 ||
+        x < boss.x + 310 && x > boss.x + 300 && y < boss.y + 195 && y > boss.y + 95 ||
+        x < boss.x - 280 && x > boss.x - 330 && y < boss.y + 245 && y > boss.y + 195 ||
+        x < boss.x + 330 && x > boss.x + 280 && y < boss.y + 245 && y > boss.y + 195
+      ) {
+      boss.changeHealth(-20);
+      return true;
+    }
     return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height-75);//if it's out of bounds 
   }
 }

@@ -67,24 +67,26 @@ class BossUno extends Boss{
     popMatrix();
   }
   
+  
+  
   void attack() {
     
   }
   
   void entrance() {
-    if (millis() - timer < 1500) {
-      angle = angle + 0.01;
-    }
-    else if (millis() - timer > 1500 && millis() - timer < 3000) {
-      angle = angle - 0.02;
-    }
-    else if (millis() - timer > 3000 && millis() - timer < 4500) {
-      angle = angle + 0.02;
-    }
-    else if (millis() - timer > 4500 && millis() - timer < 6000) {
-      angle = angle - 0.01;
-    }
-    else if (millis() - timer > 6000 && millis() - timer < 9000) {
+    //if (millis() - timer < 1500) {
+    //  angle = angle + 0.01;
+    //}
+    //else if (millis() - timer > 1500 && millis() - timer < 3000) {
+    //  angle = angle - 0.02;
+    //}
+    //else if (millis() - timer > 3000 && millis() - timer < 4500) {
+    //  angle = angle + 0.02;
+    //}
+    //else if (millis() - timer > 4500 && millis() - timer < 6000) {
+    //  angle = angle - 0.01;
+    //}
+    if (millis() - timer > 0 && millis() - timer < 3000) {
       y+=1;
     }
     else {

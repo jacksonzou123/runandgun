@@ -80,9 +80,6 @@ void draw() {
       mode = "main";
     }
     
-    //display the health/ammo bars on bottom
-    bars.display();
-    
     //display the spawners and creates new monsters
     for (spawn spawner: spawners) {
       spawner.display();
@@ -148,6 +145,9 @@ void draw() {
       }
       else enemyBullets.get(i).display();
     }
+        
+    //display the health/ammo bars on bottom
+    bars.display();
   }
 }
 
