@@ -5,6 +5,7 @@ class Player extends Character {
   boolean d;
   int fireMode;
   int[] ammos;
+  int shields;
   
   Player(float x, float y) {
     super(x, y);
@@ -13,6 +14,7 @@ class Player extends Character {
     s = false;
     d = false;
     fireMode = 0;
+    shields = 10;
     maxhealth = 100;
     health = 100;
     ammos = new int[3];

@@ -169,7 +169,10 @@ void keyPressed() {
       player.changeFireMode();
     }
     if(keyCode == 70){
+      if(player.shields > 0){
       walls.add(new tempWall());
+      player.shields--;
+      }
     }
   }
 }

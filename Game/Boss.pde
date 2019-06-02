@@ -51,7 +51,8 @@ class BossUno extends Boss{
     rect(-310,95,10,100);
     rectMode(CENTER);
     rect(-305,220,50,50);
-    fill(0,120,120);
+    if(t % 21 < 10) fill(255,255,255);
+    else fill(255,0,0);
     rect(-140,135,20,30);
     rect(-70,135,20,30);
     rect(70,135,20,30);
