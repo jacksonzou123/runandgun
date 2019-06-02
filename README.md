@@ -96,3 +96,10 @@ May 30
     Started designing boss, not yet in use
     Started designing stage 1, have spawners in place
     Gave monsters a less than 100% accuracy, because their shots will always miss if the player is moving 
+
+June 2
+- Derek
+    Added walls to level
+    Made start screen more clean
+    Added system to reset levels once restarted
+    Adjusted colors on boss
