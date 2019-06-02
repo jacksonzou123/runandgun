@@ -31,7 +31,12 @@ void stage1() {
                           new monsterspawn(millis()+5000,width - 10,300,10000)};
   bars = new Bars();
   gets = new pspawn[] {new healspawn(millis(), 100, 600, 30000), new shotgunpack(millis(), width/2 - 100, 300, 20000), new assaultpack(millis(), width/2 + 100, 300, 20000)};
-  walls.add(new permWall(0,0));
+  walls.add(new permWall(750,500));
+  walls.add(new permWall(250,500));
+  walls.add(new permWall(730,520));
+  walls.add(new permWall(270,520));
+  walls.add(new permWall(710,540));
+  walls.add(new permWall(290,540));
   boss = new BossUno(500,-100);
 }
 
@@ -81,7 +86,6 @@ void draw() {
   
   if (mode.equals("stage")) {
     background(255);
-        
     if (player.health <= 0) {//returns player to menu once health reaches zero 
       mode = "main";
     }
@@ -184,6 +188,7 @@ void keyPressed() {
       player.shields--;
       }
     }
+    if(keyCode == 82) player.health = 100; //CHEAT CODE FOR DEMONSTRATION 
   }
 }
 

@@ -20,7 +20,7 @@ abstract class wall{
   
   boolean checkLeft(){//checks left side to see if player is too close 
     for(int i = 0; i < walls.size(); i++){
-      if(player.x < x && x - player.x <= 20 && Math.abs(y - player.y)<20){
+      if(player.x < walls.get(i).x && walls.get(i).x - player.x <= 20 && Math.abs(walls.get(i).y - player.y)<20){
         return false;
       }
     }
@@ -29,7 +29,7 @@ abstract class wall{
   
   boolean checkRight(){//checks right side if player is too close 
         for(int i = 0; i < walls.size(); i++){
-      if(player.x > x && player.x - x <= 20 && Math.abs(y - player.y)<20){
+      if(player.x > walls.get(i).x && player.x - walls.get(i).x <= 20 && Math.abs(walls.get(i).y - player.y)<20){
         return false;
       }
     }
@@ -38,7 +38,7 @@ abstract class wall{
   
   boolean checkUp(){//checks up to see if player is too close 
         for(int i = 0; i < walls.size(); i++){
-      if(player.y < y && y - player.y  <= 20 && Math.abs(x - player.x)<20){
+      if(player.y < walls.get(i).y && walls.get(i).y - player.y  <= 20 && Math.abs(walls.get(i).x - player.x)<20){
         return false;
       }
     }
@@ -47,7 +47,7 @@ abstract class wall{
   
   boolean checkDown(){//checks downward to see if player is too close 
         for(int i = 0; i < walls.size(); i++){
-      if(player.y > y && player.y - y <= 20 && Math.abs(x - player.x)<20){
+      if(player.y > walls.get(i).y && player.y - walls.get(i).y <= 20 && Math.abs(walls.get(i).x - player.x)<20){
         return false;
       }
     }
