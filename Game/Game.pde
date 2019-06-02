@@ -33,10 +33,10 @@ void stage1() {
   gets = new pspawn[] {new healspawn(millis(), 100, 600, 30000), new shotgunpack(millis(), width/2 - 100, 300, 20000), new assaultpack(millis(), width/2 + 100, 300, 20000)};
   walls.add(new permWall(750,500));
   walls.add(new permWall(250,500));
-  walls.add(new permWall(730,520));
-  walls.add(new permWall(270,520));
-  walls.add(new permWall(710,540));
-  walls.add(new permWall(290,540));
+  walls.add(new permWall(730,480));
+  walls.add(new permWall(270,480));
+  walls.add(new permWall(710,460));
+  walls.add(new permWall(290,460));
   boss = new BossUno(500,-100);
 }
 
@@ -212,6 +212,10 @@ void keyReleased(){
 void mousePressed() {
   if (mode == "main") {//looks for button clicking 
     if (playbutton1.inButton()) {
+      monsters.clear();
+      enemyBullets.clear();
+      friendlyBullets.clear();
+      walls.clear();
       mode = "animate";
       stage1();
     }
