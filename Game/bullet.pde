@@ -3,15 +3,17 @@ abstract class bullet{
   float x;
   float y;
   float heading;
+  color c;
   
   public bullet(){
   }
   
-  public bullet(float x,float y,float heading,int damage){
+  public bullet(float x,float y,float heading,int damage, color c){
     this.x = x;
     this.y = y;
     this.heading = heading; //what angle direction it's facing (in radians)
     this.damage = damage;
+    this.c = c;
   }
   
   abstract void move();
@@ -22,8 +24,8 @@ abstract class bullet{
 //ENEMY BULLET CODE
 class enemyBullet extends bullet{
   
-  public enemyBullet(float x,float y,float heading){
-    super(x,y,heading,-20);
+  public enemyBullet(float x,float y,float heading, int damage, color c){
+    super(x,y,heading,-1 * damage, c);
   }
   
   float getX(){
@@ -40,7 +42,7 @@ class enemyBullet extends bullet{
   }
   
   void display(){
-    fill(255,0,0);
+    fill(c);
     ellipse(x,y,10,10);
   }
   
@@ -64,8 +66,8 @@ class enemyBullet extends bullet{
 //FRIENDLY BULLET CODE
 class friendlyBullet extends bullet{
   
-  public friendlyBullet(float x,float y,float heading){
-    super(x,y,heading,-20);
+  public friendlyBullet(float x,float y,float heading, int damage, color c){
+    super(x,y,heading,-1 * damage, c);
   }
   
   float getX(){
@@ -82,7 +84,7 @@ class friendlyBullet extends bullet{
   }
   
   void display(){
-    fill(0,255,0);
+    fill(c);
     ellipse(x,y,10,10);
   }
   
@@ -95,7 +97,7 @@ class friendlyBullet extends bullet{
     }
     for(int i = 0; i < monsters.size(); i++){//if it's hit a monster 
       if(Math.abs(x - monsters.get(i).getX()) < 10 && Math.abs(y - monsters.get(i).getY()) < 10){
-        monsters.get(i).changeHealth(-20);
+        monsters.get(i).changeHealth(damage);
         return true;
       }
     }
@@ -107,7 +109,7 @@ class friendlyBullet extends bullet{
         x < boss.x - 280 && x > boss.x - 330 && y < boss.y + 245 && y > boss.y + 195 ||
         x < boss.x + 330 && x > boss.x + 280 && y < boss.y + 245 && y > boss.y + 195
       ) {
-      boss.changeHealth(-20);
+      boss.changeHealth(damage);
       return true;
     }
     return (getX() <= 0 || getX() >= width || getY() <= 0 || getY() >= height-75);//if it's out of bounds 

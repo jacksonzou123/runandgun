@@ -121,7 +121,7 @@ void draw() {
     //RAPID FIRE FUNCTION
     if(rapid && t%5 == 0){
      if (player.hasAmmo(2)) {
-       friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
+       friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)), 33, color(0,0,122)));
      }
     }
     //t++;
@@ -204,15 +204,15 @@ void mousePressed() {
   }
   if (mode == "stage") {
     if(player.fireMode == 0){//REGULAR SINGLE SHOT MODE
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))));
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)), 25, color(255,255,0)));
     }
-    if(player.fireMode == 1){//SHOTGUN MODE
+    if(player.fireMode == 1){//SHOTGUN MODE 
       if (player.hasAmmo(1)) {
-        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.0872665+0.0872665)); //+ 20 degrees
-        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.0872665)); //+ 10 degrees
-        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)))); //where the mouse is
-        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.0872665)); //- 10 degrees
-        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.0872665-0.0872665)); //- 20 degrees
+        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.0872665+0.0872665, 25, color(255,0,0))); //+ 20 degrees
+        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))+0.0872665, 25, color(255,0,0))); //+ 10 degrees
+        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)), 25, color(255,0,0))); //where the mouse is
+        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.0872665, 25, color(255,0,0))); //- 10 degrees
+        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.0872665-0.0872665, 25, color(255,0,0))); //- 20 degrees
       }
     }
     if(player.fireMode == 2){//RAPID FIRE MODE
