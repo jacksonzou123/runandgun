@@ -97,7 +97,11 @@ class friendlyBullet extends bullet{
     }
     for(int i = 0; i < monsters.size(); i++){//if it's hit a monster 
       if(Math.abs(x - monsters.get(i).getX()) < 10 && Math.abs(y - monsters.get(i).getY()) < 10){
-        monsters.get(i).changeHealth(damage);
+        int factor = 1;
+        if (c == color(255,0,0)) {
+          factor = 2;
+        }
+        monsters.get(i).changeHealth(damage * factor);
         return true;
       }
     }

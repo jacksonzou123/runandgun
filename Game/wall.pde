@@ -78,6 +78,10 @@ class tempWall extends wall{
     super(x,y);
     hits = 5;
   }
+  tempWall() {
+    super(player.x + 20 * cos(atan2((mouseY - player.y),(mouseX - player.x))), player.y + 20 * sin(atan2((mouseY - player.y),(mouseX - player.x))));
+    hits = 5;
+  }
     void display(){
     rectMode(CENTER);
     fill(0,206,209);

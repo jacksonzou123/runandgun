@@ -26,8 +26,8 @@ abstract class Boss{
 class BossUno extends Boss{
   BossUno(float x, float y) {
     super(x,y);
-    maxhealth = 1000;
-    health = 1000;
+    maxhealth = 100000;
+    health = maxhealth;
   }
   
   void display() {
