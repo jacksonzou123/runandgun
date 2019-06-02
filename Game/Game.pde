@@ -16,8 +16,8 @@ Boss boss;
 void setup() {
   size(1000,700);
   mode = "main";
-  playbutton1 = new Playbutton(width/2, height/2, 20, 20);
-  playbutton2 = new Playbutton(width/2, height/2 + 200, 20, 20);
+  playbutton1 = new Playbutton(width/2, height/2+100, 80, 40);
+  playbutton2 = new Playbutton(width/2, height/2 + 200, 160, 40);
 }
 
 //SETUP FOR FIRST LEVEL
@@ -54,9 +54,15 @@ void draw() {
     playbutton2.display();
     textSize(20);
     fill(0);
+    text("Stage 1",width/2-35,height/2+105);
+    text("Beta Testing",width/2-60,height/2+205);
     if(t%75 < 45){ //so that the text blinks 
-      text("Click here to start",width/2-85,50);
+      text("Click a button to start",width/2-105,370);
     }
+    textSize(80);
+    text("Game Title Here", width/2-300,110);
+    textSize(30);
+    text("By: Derek Leung and Jackson Zou",width/2 - 225,200);
   }
   
   if (mode.equals("animate")) {
