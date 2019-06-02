@@ -76,7 +76,7 @@ class tempWall extends wall{
   int hits;
   tempWall(float x,float y){
     super(x,y);
-    hits = 5;
+    hits = 8;
   }
   tempWall() {
     super(player.x + 20 * cos(atan2((mouseY - player.y),(mouseX - player.x))), player.y + 20 * sin(atan2((mouseY - player.y),(mouseX - player.x))));

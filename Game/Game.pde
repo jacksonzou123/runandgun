@@ -23,12 +23,12 @@ void setup() {
 //SETUP FOR FIRST LEVEL
 void stage1() {
   player = new Player(500,600);
-  spawners = new spawn[] {new monsterspawn(millis(),10,100,5000), 
-                          new monsterspawn(millis()+100,10,200,5000), 
-                          new monsterspawn(millis()+200,10,300,5000), 
-                          new monsterspawn(millis()+300,width - 10,100,5000), 
-                          new monsterspawn(millis()+400,width - 10,200,5000),
-                          new monsterspawn(millis()+500,width - 10,300,5000)};
+  spawners = new spawn[] {new monsterspawn(millis(),10,100,10000), 
+                          new monsterspawn(millis()+1000,10,200,10000), 
+                          new monsterspawn(millis()+2000,10,300,10000), 
+                          new monsterspawn(millis()+3000,width - 10,100,10000), 
+                          new monsterspawn(millis()+4000,width - 10,200,10000),
+                          new monsterspawn(millis()+5000,width - 10,300,10000)};
   bars = new Bars();
   gets = new pspawn[] {new healspawn(millis(), 100, 600, 30000), new shotgunpack(millis(), width/2 - 100, 300, 20000), new assaultpack(millis(), width/2 + 100, 300, 20000)};
   walls.add(new permWall(0,0));
@@ -154,6 +154,10 @@ void draw() {
         
     //display the health/ammo bars on bottom
     bars.display();
+    
+    if(boss.health <= 0){
+      mode = "main";
+    }
   }
 }
 
@@ -213,7 +217,7 @@ void mousePressed() {
   }
   if (mode == "stage") {
     if(player.fireMode == 0){//REGULAR SINGLE SHOT MODE
-    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)), 25, color(255,255,0)));
+    friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)), 34, color(255,255,0)));
     }
     if(player.fireMode == 1){//SHOTGUN MODE 
       if (player.hasAmmo(1)) {
