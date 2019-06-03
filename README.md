@@ -1,6 +1,6 @@
 # Final
 
-Our game is a boss fighting game where your objective is to defeat the boss and the minions that spawn to defend the boss. 
+Our game is a boss fighting game where your objective is to defeat the boss and the minions that spawn to defend the boss.
 
 Controls:
 W - Move upward
@@ -95,7 +95,13 @@ May 30
 - Jackson
     Started designing boss, not yet in use
     Started designing stage 1, have spawners in place
-    Gave monsters a less than 100% accuracy, because their shots will always miss if the player is moving 
+    Gave monsters a less than 100% accuracy, because their shots will always miss if the player is moving
+
+June 1
+- Jackson
+    Coded basics of boss, gave it a body
+    Boss moves forward to player in beginning of round
+    Bullets now hit boss and deal damage
 
 June 2
 - Derek
@@ -103,3 +109,7 @@ June 2
     Made start screen more clean
     Added system to reset levels once restarted
     Adjusted colors on boss
+- Jackson
+    Boss moves left and right with a small chance of turning
+    Boss shoots bullets and has two modes
+    
