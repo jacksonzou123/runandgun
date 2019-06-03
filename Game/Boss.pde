@@ -118,11 +118,12 @@ class BossUno extends Boss{
           a = 350;
           b = 220;
         }
-        enemyBullets.add(new enemyBullet(x-a,y+b,radians(80),20,color(160,32,240)));
-        enemyBullets.add(new enemyBullet(x-a,y+b,radians(85),20,color(160,32,240)));
-        enemyBullets.add(new enemyBullet(x-a,y+b,radians(90),20,color(160,32,240)));
-        enemyBullets.add(new enemyBullet(x-a,y+b,radians(95),20,color(160,32,240)));
-        enemyBullets.add(new enemyBullet(x-a,y+b,radians(100),20,color(160,32,240)));
+        enemyBullets.add(new enemyBullet(x-a,y+b,radians(80),5,color(160,32,240)));
+        enemyBullets.add(new enemyBullet(x-a,y+b,radians(85),5,color(160,32,240)));
+        enemyBullets.add(new enemyBullet(x-a,y+b,radians(90),5,color(160,32,240)));
+        enemyBullets.add(new enemyBullet(x-a,y+b,radians(95),5,color(160,32,240)));
+        enemyBullets.add(new enemyBullet(x-a,y+b,radians(100),5,color(160,32,240)));
+        if(Math.random() <.25)monsters.add(new Missile(x,y));
         timer = millis();
       }
     }

@@ -64,3 +64,43 @@ class Melee extends Monster{
     return false;
   }
 }
+
+//CODE FOR MISSILE CLASS
+class Missile extends Melee{
+  boolean exploded;
+  Missile(float x,float y){
+    super(x,y,1); //dies in 1 hit 
+    exploded = false;
+  }
+  
+  void display(){//It's an equilateral triangle
+    pushMatrix();
+    translate(x,y);
+    rotate(3.14159-0.523599 +atan2(player.y - this.y, player.x - this.x));
+    fill(153,0,0);
+    triangle(-10,0,10,0,0,10*(float)Math.sqrt(3));
+    popMatrix();
+  }
+  
+  void move(int i){//follows the player and moves much faster than regular enemies
+    float scale = 2 * sqrt(pow((player.y-this.y),2)+pow((player.x-this.x),2));
+    x+= 8*((player.x-this.x)/scale);
+    y+= 8*((player.y-this.y)/scale);
+  }
+  
+    void shoot(){
+    if(Math.abs(player.x -x)<10 && Math.abs(player.y -y) <10){
+      player.health -= 30; //does big damage 
+      exploded = true; //does some kamikaze action
+    }
+  }
+  
+    boolean check() { //if it's shot or explodes it is removed from the arraylist 
+    if (health <= 0) {
+       return true;
+    }
+    if(exploded) return true;
+    return false;
+  }
+  
+}
