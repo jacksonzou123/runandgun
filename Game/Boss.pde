@@ -5,11 +5,13 @@ abstract class Boss{
   int timer;
   float x, y;
   float angle;
+  boolean right;
   
   Boss(float x, float y) {
     this.x = x;
     this.y = y;
     timer = millis();
+    right = true;
   }
   
   void changeHealth(int health) {
@@ -71,7 +73,115 @@ class BossUno extends Boss{
   
   
   void attack() {
+    if (((float)health)/maxhealth > 0.75 ) {
+      m = 0;
+    }
+    if (((float)health)/maxhealth < 0.75 && ((float)health)/maxhealth > 0.5 ) {
+      m = 1;
+    }
+    if (((float)health)/maxhealth < 0.5 && ((float)health)/maxhealth > 0.25 ) {
+      m = 2;
+    }
+    if (((float)health)/maxhealth < 0.25) {
+      m = 3;
+    }
+    if (m == 0 || m == 1) {
+      if (millis() - timer > 500) {
+        int num = (int)(7*Math.random());
+        int a = 0;
+        int b = 0;
+        if (num == 0) {
+          a = -70;
+          b = 150;
+        }
+        if (num == 1) {
+          a = -140;
+          b = 150;
+        }
+        if (num == 2) {
+          a = 70;
+          b = 150;
+        }
+        if (num == 3) {
+          a = 140;
+          b = 150;
+        }
+        if (num == 4) {
+          a = 0; 
+          b = 150;
+        }
+        if (num == 5) {
+          a = -350;
+          b = 220;
+        }
+        if (num == 6) {
+          a = 350;
+          b = 220;
+        }
+        enemyBullets.add(new enemyBullet(x-a,y+b,radians(80),20,color(160,32,240)));
+        enemyBullets.add(new enemyBullet(x-a,y+b,radians(85),20,color(160,32,240)));
+        enemyBullets.add(new enemyBullet(x-a,y+b,radians(90),20,color(160,32,240)));
+        enemyBullets.add(new enemyBullet(x-a,y+b,radians(95),20,color(160,32,240)));
+        enemyBullets.add(new enemyBullet(x-a,y+b,radians(100),20,color(160,32,240)));
+        timer = millis();
+      }
+    }
+    if (m == 1) {
+      if (millis() - timer > 100) {
+        int num = (int)(10*Math.random());
+        int a = 0;
+        int b = 0;
+        if (num == 0) {
+          a = -70;
+          b = 150;          
+        }
+        if (num == 1) {
+          a = -140;
+          b = 150;
+        }
+        if (num == 2) {
+          a = 70;
+          b = 150;
+        }
+        if (num == 3) {
+          a = 140;
+          b = 150;
+        }
+        if (num == 4) {
+          a = 0;
+          b = 300;
+        }
+        if (num == 5) {
+          a = 300;
+          b = 220;
+        }
+        if (num == 6) {
+          a = -300;
+          b = 220;
+        }
+        color cc = color(160,32,240);
+        if (Math.random() < 0.05) {
+          cc = color(255,20,147);
+        }
+        enemyBullets.add(new enemyBullet(x-a,y+b,radians(90 + (int)(20*Math.random())),20,cc));
+      }
+    }
+    if (m == 2) {
+      
+    }
+    if (m == 3) {
     
+    }
+    
+    if (right) {
+      boss.x += 1;
+    }
+    else {
+      boss.x -= 1;
+    }
+    if (boss.x > 600 || boss.x < 400 || Math.random() < 0.01) {
+      right = !right;
+    }
   }
   
   void entrance() {
@@ -92,6 +202,7 @@ class BossUno extends Boss{
     }
     else {
       mode = "stage";
+      timer = millis();
     }
     
   }

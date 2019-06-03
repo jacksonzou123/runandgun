@@ -48,7 +48,7 @@ class healspawn extends pspawn{
   }
   
   void give() {
-    player.changeHealth(20);
+    player.changeHealth(50);
   }
 }
 
@@ -72,7 +72,7 @@ class shotgunpack extends pspawn{
   }
   
   void give() {
-    player.addAmmo(1,2);
+    player.addAmmo(1,5);
   }
 }
 
@@ -96,6 +96,6 @@ class assaultpack extends pspawn{
   }
   
   void give() {
-    player.addAmmo(2,20);
+    player.addAmmo(2,40);
   }
 }

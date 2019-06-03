@@ -86,6 +86,10 @@ void draw() {
   
   if (mode.equals("stage")) {
     background(255);
+    if (boss.health <= 0) {
+      mode = "end";
+    }
+      
     if (player.health <= 0) {//returns player to menu once health reaches zero 
       mode = "main";
     }
@@ -115,6 +119,7 @@ void draw() {
     player.display();
     
     //displays boss
+    boss.attack();
     boss.display();
     
     //displays and moves monsters
@@ -132,6 +137,9 @@ void draw() {
     if(rapid && t%5 == 0){
      if (player.hasAmmo(2)) {
        friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)), 33, color(0,0,122)));
+     }
+     else {
+       player.fireMode = 0;
      }
     }
     //t++;
@@ -162,6 +170,13 @@ void draw() {
     if(boss.health <= 0){
       mode = "main";
     }
+  }
+  
+  if (mode.equals("end")) {
+    background(255);
+    fill(0);
+    textSize(20);
+    text("You are amazing for beating this", 500, 350);
   }
 }
 
@@ -235,6 +250,9 @@ void mousePressed() {
         friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x)), 25, color(255,0,0))); //where the mouse is
         friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.0872665, 25, color(255,0,0))); //- 10 degrees
         friendlyBullets.add(new friendlyBullet(player.x,player.y,6.2831-(-1*atan2(mouseY-player.y,mouseX-player.x))-0.0872665-0.0872665, 25, color(255,0,0))); //- 20 degrees
+      }
+      else {
+        player.fireMode = 0;
       }
     }
     if(player.fireMode == 2){//RAPID FIRE MODE

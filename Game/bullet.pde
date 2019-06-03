@@ -49,7 +49,12 @@ class enemyBullet extends bullet{
   //checks if it needs to be deleted 
   boolean check(){
     if(Math.abs(x - player.x) < 10 && Math.abs(y - player.y) < 10){//if it's hit the player 
-      player.changeHealth(damage);
+      if (c == color(255,20,147)) {
+        player.changeHealth(-50);
+      }
+      else {
+        player.changeHealth(damage);
+      }
       return true;
     }
     for(int i = 0;i<walls.size();i++){//if it's hit a wall
