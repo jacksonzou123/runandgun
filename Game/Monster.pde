@@ -83,7 +83,7 @@ class Missile extends Melee{
   }
   
   void move(int i){//follows the player and moves much faster than regular enemies
-    float scale = 2 * sqrt(pow((player.y-this.y),2)+pow((player.x-this.x),2));
+    float scale = 2.25 * sqrt(pow((player.y-this.y),2)+pow((player.x-this.x),2));
     x+= 8*((player.x-this.x)/scale);
     y+= 8*((player.y-this.y)/scale);
   }

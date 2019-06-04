@@ -166,7 +166,7 @@ class BossUno extends Boss{
       }
     }
     if (m == 2) {
-            if (millis() - timer > 100) {
+       if (millis() - timer > 50) {
         int num = (int)(10*Math.random());
         int a = 0;
         int b = 0;
@@ -202,7 +202,9 @@ class BossUno extends Boss{
         if (Math.random() < 0.05) {
           cc = color(255,20,147);
         }
-        enemyBullets.add(new enemyBullet(x-a,y+b,radians(atan2(y-player.y,x-player.x) + 90)/*(int)(20*Math.random()))*/,20,cc));
+        enemyBullets.add(new enemyBullet(x-a,y+b,radians(atan2(this.y-player.y,this.x-player.x) + 90),20,cc));
+        if(Math.random() <.27)monsters.add(new Missile(x,y));
+        timer = millis();
       }
     }
     

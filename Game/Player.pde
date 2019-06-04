@@ -15,11 +15,11 @@ class Player extends Character {
     d = false;
     fireMode = 0;
     shields = 10;
-    maxhealth = 100;
-    health = 100;
+    maxhealth = 250;
+    health = 250;
     ammos = new int[3];
-    ammos[1] = 15;
-    ammos[2] = 100;
+    ammos[1] = 25;
+    ammos[2] = 200;
   }
   
   boolean hasAmmo(int index) {

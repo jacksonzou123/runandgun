@@ -24,12 +24,12 @@ void setup() {
 //SETUP FOR FIRST LEVEL
 void stage1() {
   player = new Player(500,600);
-  spawners = new spawn[] {new monsterspawn(millis(),10,100,7000), 
-                          new monsterspawn(millis()+1000,10,200,7000), 
-                          new monsterspawn(millis()+2000,10,300,7000), 
-                          new monsterspawn(millis()+3000,width - 10,100,7000), 
-                          new monsterspawn(millis()+4000,width - 10,200,7000),
-                          new monsterspawn(millis()+5000,width - 10,300,7000)};
+  spawners = new spawn[] {new monsterspawn(millis(),10,100,10000), 
+                          new monsterspawn(millis()+1000,10,200,10000), 
+                          new monsterspawn(millis()+2000,10,300,10000), 
+                          new monsterspawn(millis()+3000,width - 10,100,10000), 
+                          new monsterspawn(millis()+4000,width - 10,200,10000),
+                          new monsterspawn(millis()+5000,width - 10,300,10000)};
   bars = new Bars();
   gets = new pspawn[] {new healspawn(millis(), 100, 600, 15000), new healspawn(millis(),900,600,15000), new shotgunpack(millis(), width/2 - 100, 600, 10000), new assaultpack(millis(), width/2 + 100, 600, 10000)};
   walls.add(new permWall(750,500));
