@@ -7,7 +7,7 @@ spawn[] spawners;
 pspawn[] gets;
 String mode;
 Playbutton playbutton1;
-Playbutton playbutton2;
+//Playbutton playbutton2;
 boolean rapid; //helper variable for rapid fire (toggles on and off with mouse)
 int t; //helper variable for rapid fire (regulates fire rate) and other stuff (like blinking title)
 Bars bars;
@@ -18,7 +18,7 @@ void setup() {
   size(1000,700);
   mode = "main";
   playbutton1 = new Playbutton(width/2, height/2+100, 80, 40);
-  playbutton2 = new Playbutton(width/2, height/2 + 200, 160, 40);
+  //playbutton2 = new Playbutton(width/2, height/2 + 200, 160, 40);
 }
 
 //SETUP FOR FIRST LEVEL
@@ -42,14 +42,14 @@ void stage1() {
 }
 
 //SETUP FOR SECOND LEVEL
-void stage2() {
-  player = new Player(300,300);
-  spawners = new spawn[0];
-  bars = new Bars();
-  gets = new pspawn[0];
-  walls.add(new permWall(200,200));
-  boss = new BossUno(500, 200);
-}
+//void stage2() {
+//  player = new Player(300,300);
+//  spawners = new spawn[0];
+//  bars = new Bars();
+//  gets = new pspawn[0];
+//  walls.add(new permWall(200,200));
+//  boss = new BossUno(500, 200);
+//}
 
 void draw() {
   t++;
@@ -57,11 +57,11 @@ void draw() {
   if (mode.equals("main")) {//MENU SCREEN
     background(255);
     playbutton1.display();
-    playbutton2.display();
+    //playbutton2.display();
     textSize(20);
     fill(0);
     text("Stage 1",width/2-35,height/2+105);
-    text("Beta Testing",width/2-60,height/2+205);
+    //text("Beta Testing",width/2-60,height/2+205);
     if(t%75 < 45){ //so that the text blinks 
       text("Click a button to start",width/2-105,370);
     }
@@ -237,10 +237,10 @@ void mousePressed() {
       mode = "animate";
       stage1();
     }
-    if (playbutton2.inButton()) {
-      mode = "stage";
-      stage2();
-    }
+    //if (playbutton2.inButton()) {
+    //  mode = "stage";
+    //  stage2();
+    //}
   }
   if (mode == "stage") {
     if(player.fireMode == 0){//REGULAR SINGLE SHOT MODE
