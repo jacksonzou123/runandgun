@@ -72,7 +72,7 @@ class shotgunpack extends pspawn{
   }
   
   void give() {
-    player.addAmmo(1,5);
+    player.addAmmo(1,7);
   }
 }
 

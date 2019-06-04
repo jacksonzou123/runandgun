@@ -40,7 +40,8 @@ class BossUno extends Boss{
     //main body
     fill(#f95001);
     rect(0,0,400,300);
-    
+    fill(255);
+    rect(0,0,30,30);
     //head
     fill(0);
     ellipse(0,120,100,100);
@@ -79,11 +80,8 @@ class BossUno extends Boss{
     if (((float)health)/maxhealth < 0.75 && ((float)health)/maxhealth > 0.5 ) {
       m = 1;
     }
-    if (((float)health)/maxhealth < 0.5 && ((float)health)/maxhealth > 0.25 ) {
+    if (((float)health)/maxhealth < 0.5 && ((float)health)/maxhealth > 0 ) {
       m = 2;
-    }
-    if (((float)health)/maxhealth < 0.25) {
-      m = 3;
     }
     if (m == 0 || m == 1) {
       if (millis() - timer > 500) {
@@ -128,7 +126,7 @@ class BossUno extends Boss{
       }
     }
     if (m == 1) {
-      if (millis() - timer > 100) {
+      if (millis() - timer > 250) {
         int num = (int)(10*Math.random());
         int a = 0;
         int b = 0;
@@ -168,10 +166,44 @@ class BossUno extends Boss{
       }
     }
     if (m == 2) {
-      
-    }
-    if (m == 3) {
-    
+            if (millis() - timer > 100) {
+        int num = (int)(10*Math.random());
+        int a = 0;
+        int b = 0;
+        if (num == 0) {
+          a = -70;
+          b = 150;          
+        }
+        if (num == 1) {
+          a = -140;
+          b = 150;
+        }
+        if (num == 2) {
+          a = 70;
+          b = 150;
+        }
+        if (num == 3) {
+          a = 140;
+          b = 150;
+        }
+        if (num == 4) {
+          a = 0;
+          b = 300;
+        }
+        if (num == 5) {
+          a = 300;
+          b = 220;
+        }
+        if (num == 6) {
+          a = -300;
+          b = 220;
+        }
+        color cc = color(160,32,240);
+        if (Math.random() < 0.05) {
+          cc = color(255,20,147);
+        }
+        enemyBullets.add(new enemyBullet(x-a,y+b,radians(atan2(y-player.y,x-player.x) + 90)/*(int)(20*Math.random()))*/,20,cc));
+      }
     }
     
     if (right) {

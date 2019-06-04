@@ -12,6 +12,7 @@ boolean rapid; //helper variable for rapid fire (toggles on and off with mouse)
 int t; //helper variable for rapid fire (regulates fire rate) and other stuff (like blinking title)
 Bars bars;
 Boss boss;
+int timer;
 
 void setup() {
   size(1000,700);
@@ -23,14 +24,14 @@ void setup() {
 //SETUP FOR FIRST LEVEL
 void stage1() {
   player = new Player(500,600);
-  spawners = new spawn[] {new monsterspawn(millis(),10,100,10000), 
-                          new monsterspawn(millis()+1000,10,200,10000), 
-                          new monsterspawn(millis()+2000,10,300,10000), 
-                          new monsterspawn(millis()+3000,width - 10,100,10000), 
-                          new monsterspawn(millis()+4000,width - 10,200,10000),
-                          new monsterspawn(millis()+5000,width - 10,300,10000)};
+  spawners = new spawn[] {new monsterspawn(millis(),10,100,7000), 
+                          new monsterspawn(millis()+1000,10,200,7000), 
+                          new monsterspawn(millis()+2000,10,300,7000), 
+                          new monsterspawn(millis()+3000,width - 10,100,7000), 
+                          new monsterspawn(millis()+4000,width - 10,200,7000),
+                          new monsterspawn(millis()+5000,width - 10,300,7000)};
   bars = new Bars();
-  gets = new pspawn[] {new healspawn(millis(), 100, 600, 30000), new shotgunpack(millis(), width/2 - 100, 300, 20000), new assaultpack(millis(), width/2 + 100, 300, 20000)};
+  gets = new pspawn[] {new healspawn(millis(), 100, 600, 15000), new healspawn(millis(),900,600,15000), new shotgunpack(millis(), width/2 - 100, 600, 10000), new assaultpack(millis(), width/2 + 100, 600, 10000)};
   walls.add(new permWall(750,500));
   walls.add(new permWall(250,500));
   walls.add(new permWall(730,480));
@@ -88,6 +89,7 @@ void draw() {
     background(255);
     if (boss.health <= 0) {
       mode = "end";
+      timer = millis();
     }
       
     if (player.health <= 0) {//returns player to menu once health reaches zero 
@@ -167,16 +169,17 @@ void draw() {
     //display the health/ammo bars on bottom
     bars.display();
     
-    if(boss.health <= 0){
-      mode = "main";
-    }
   }
   
   if (mode.equals("end")) {
     background(255);
     fill(0);
     textSize(20);
-    text("You are amazing for beating this", 500, 350);
+    text("You are amazing for beating this", 300, 350);
+    text("Wanna try again?", 300,400);
+    if (millis() - timer > 3000) {
+      mode = "main";
+    }
   }
 }
 
