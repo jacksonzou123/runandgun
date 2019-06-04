@@ -112,4 +112,8 @@ June 2
 - Jackson
     Boss moves left and right with a small chance of turning
     Boss shoots bullets and has two modes
-    
+
+June 4
+- Jackson
+    Game is balanced
+    End screen shows up when boss dies before going back to main menu
