@@ -7,11 +7,17 @@ Our game is a boss fighting game where your objective is to defeat the boss. Thi
 Run the game and click the button in the first menu and play
 Controls:
 W - Move upward
+
 A - Move left
+
 S - Move downward
+
 D - Move right
+
 F - Place defensive wall
+
 E - Switch weapon
+
 Left Mouse - Shoot
 
 
