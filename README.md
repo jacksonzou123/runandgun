@@ -1,10 +1,10 @@
 # Final
 
-##Description
+## Description
 Our game is a boss fighting game where your objective is to defeat the boss. This is a 2D top down game where you control a small character moving around the screen while shooting and avoiding enemy projectiles. Monsters will be spawning at certain intervals from spawners and will constantly be attacking you. The boss will have different attack modes based on how much health it has. Your health is listed on the bottom of the screen, as well as the current weapon you have equipped and the ammo you have left. 
 
 ---
-##How-to:
+## How-to:
 Run the game and click the button in the first menu and play
 Controls:
 W - Move upward
@@ -17,7 +17,7 @@ Left Mouse - Shoot
 
 ---
 
-##Devlog
+## Devlog
 May 16
 - Repo created
 
